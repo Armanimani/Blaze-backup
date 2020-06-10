@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: CI
 
 on:
   push:
@@ -28,11 +28,11 @@ jobs:
     
       - name: Build - Release
         if: matrix.configuration == 'Release'
-        run: cmake -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True --build build --config Release
+        run: cmake -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True -DCMAKE_BUILD_TYPE=RELEASE --build build
       
       - name: Build - Debug
         if: matrix.configuration == 'Debug'
-        run: cmake -DENABLE_IPO:BOOL=False -DENABLE_TESTING:BOOL=True --build build --config Debug
+        run: cmake -DENABLE_IPO:BOOL=False -DENABLE_TESTING:BOOL=True -DCMAKE_BUILD_TYPE=DEBUG --build build
       
       - name: Test
         run: cd build && ctest
