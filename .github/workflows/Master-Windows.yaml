@@ -23,12 +23,13 @@ jobs:
       - name: Build
         uses: lukka/run-cmake@v2
         with:
+          cmakeListsOrSettingsJson: CMakeListsTxtAdvanced 
           cmakeListsTxtPath: ${{ github.workspace }}/CMakeLists.txt
           buildDirectory: ${{ github.workspace }}/build
           cmakeBuildType: ${{ matrix.configuration }}    
           buildWithCMake: true
           cmakeGenerator: VS16Win64 
-          buildWithCMakeArgs: -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True -DCMAKE_BUILD_TYPE=RELEASE -A x64 
+          buildWithCMakeArgs: -v
       
       - name: Test
         run: ctest -c ${{ matrix.configuration }}
