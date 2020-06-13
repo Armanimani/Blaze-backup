@@ -40,3 +40,13 @@ jobs:
         run: |
           cd build
           cmake --install . -v --prefix ../install --config ${{ matrix.configuration }} 
+
+      - name: Deploy
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.configuration }}_exports
+          path: ${{ runner.workspace }}/install
+          
+      - name: Display deployment structure
+        run: ls -R
+        working-directory: ${{ runner.workspace }}/install  
