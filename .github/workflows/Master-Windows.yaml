@@ -32,4 +32,6 @@ jobs:
           buildWithCMakeArgs: -v
       
       - name: Test
-        run: ctest
+        run: |
+          cd build
+          ctest -c ${{ matrix.configuration }}
