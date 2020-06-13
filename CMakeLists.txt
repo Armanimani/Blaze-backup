@@ -42,11 +42,11 @@ endif()
 # Sources
 add_subdirectory(Blaze)
 
-# install
+# Install
 install(
 	TARGETS
 		blaze_engine_base
-	LIBRARY DESTINATION bin
+	LIBRARY DESTINATION lib
 	ARCHIVE DESTINATION lib
 	RUNTIME DESTINATION bin
 	INCLUDES DESTINATION include
