@@ -23,7 +23,7 @@ jobs:
       - name: Configure
         run: |
           mkdir build
-          mdkir install
+          mkdir install
           cd build 
           cmake ..
     
