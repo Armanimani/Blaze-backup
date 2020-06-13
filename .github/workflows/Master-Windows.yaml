@@ -24,9 +24,9 @@ jobs:
         uses: lukka/run-cmake@v2
         with:
           cmakeListsOrSettingsJson: CMakeListsTxtAdvanced 
-          cmakeListsTxtPath: ${{ github.workspace }}/CMakeLists.txt
           buildDirectory: ${{ github.workspace }}/build
-          cmakeBuildType: ${{ matrix.configuration }}    
+          cmakeBuildType: ${{ matrix.configuration }} 
+          cmakeAppendedArgs: -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True  
           buildWithCMake: true
           cmakeGenerator: VS16Win64 
           buildWithCMakeArgs: -v
