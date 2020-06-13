@@ -6,13 +6,17 @@ project(blaze CXX)
 include(cmake/StandardProjectSettings.cmake)
 
 # Link to this 'Library' to set the C++ standard / compile time options requested
-add_library(project_options INTERFACE)
-target_compile_features(project_options INTERFACE cxx_std_17)
+add_library(blaze_project_options INTERFACE)
+target_compile_features(blaze_project_options INTERFACE cxx_std_17)
+
+add_library(Blaze::ProjectOption ALIAS blaze_project_options)
 
 # Link to this 'Library' to use the warnings
-add_library(project_warnings INTERFACE)
+add_library(blaze_project_warnings INTERFACE)
 include(cmake/CompilerWarnings.cmake)
-set_project_warnings(project_warnings)
+set_project_warnings(blaze_project_warnings)
+
+add_library(Blaze::ProjectWarnings ALIAS blaze_project_warnings)
 
 # Sanitizer options if supported by the compiler
 include(cmake/Sanitizers.cmake)
@@ -34,3 +38,15 @@ if(ENABLE_TESTING)
 	enable_testing()
 	message(STATUS "Building tests")
 endif()
+
+# Sources
+add_subdirectory(Blaze)
+
+install(
+	TARGETS
+		blaze_engine_base
+	LIBRARY DESTINATION bin
+	ARCHIVE DESTINATION lib
+	RUNTIME DESTINATION bin
+	INCLUDES DESTINATION include
+)

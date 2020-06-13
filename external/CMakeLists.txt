@@ -1,1 +1,5 @@
 add_subdirectory(googletest)
+add_library(GTest::GTest ALIAS gtest)
+add_library(GTest::GTest::Main ALIAS gtest_main)
+add_library(GTest::GMock ALIAS gmock)
+add_library(GTest::GMock::Main ALIAS gmock_main)
