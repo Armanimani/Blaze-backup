@@ -36,7 +36,7 @@ jobs:
         run: cmake -DENABLE_IPO:BOOL=False -DENABLE_TESTING:BOOL=True -DCMAKE_BUILD_TYPE=DEBUG --build build
       
       - name: Test
-        run: cd build && ctest -C ${{ matrix.configuration }} 
+        run: cd build && ctest
         
       - name: Install
         run: cmake install
