@@ -23,6 +23,7 @@ jobs:
       - name: Configure
         run: |
           mkdir build
+          mdkir install
           cd build 
           cmake ..
     
@@ -36,3 +37,6 @@ jobs:
       
       - name: Test
         run: cd build && ctest
+        
+      - name: Install
+        run: cmake install
