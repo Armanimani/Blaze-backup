@@ -28,11 +28,12 @@ jobs:
           buildDirectory: 'build'
           cmakeBuildType: ${{ matrix.configuration }}  
           buildWithCMake: true
-          cmakeGenerator: VS19Win64 
-          buildWithCMakeArgs: --config ${{ matrix.configuration }} -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True
+          cmakeGenerator: VS19Win64
+          cmakeAppendedArgs: -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True
+          buildWithCMakeArgs: --config ${{ matrix.configuration }}
       
       - name: Test
         run: ctest -C ${{ matrix.configuration }}
         
       - name: Install
-        run: cmake install
+        run: mkdir install && cmake install
