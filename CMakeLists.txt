@@ -13,7 +13,7 @@ add_library(Blaze::ProjectOption ALIAS blaze_project_options)
 
 # Link to this 'Library' to use the warnings
 add_library(blaze_project_warnings INTERFACE)
-if(not APPLE)
+if(NOT APPLE)
 	# TODO: The settings specified in compiler warning here are not compatible with macos, these need to be updated
 	include(cmake/CompilerWarnings.cmake)
 endif()
