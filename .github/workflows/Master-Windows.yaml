@@ -29,7 +29,7 @@ jobs:
           cmakeAppendedArgs: -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True  
           buildWithCMake: true
           cmakeGenerator: VS16Win64 
-          buildWithCMakeArgs: -v
+          buildWithCMakeArgs: -v --config ${{ matrix.configuration }} 
       
       - name: Test
         run: |
