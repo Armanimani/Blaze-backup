@@ -39,7 +39,7 @@ jobs:
       - name: install
         run: |
           cd build
-          cmake --install . -v --prefix ../install --config ${{ matrix.configuration }} 
+          cmake --install . -v --prefix ../../install --config ${{ matrix.configuration }} 
 
       - name: Deploy
         uses: actions/upload-artifact@v2
