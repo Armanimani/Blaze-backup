@@ -35,13 +35,14 @@ add_subdirectory(external)
 option(ENABLE_TESTING "Enable test builds" ON)
 if(ENABLE_TESTING)
 	include(CTest)
-	enable_testing()
 	message(STATUS "Building tests")
+	enable_testing()
 endif()
 
 # Sources
 add_subdirectory(Blaze)
 
+# install
 install(
 	TARGETS
 		blaze_engine_base
