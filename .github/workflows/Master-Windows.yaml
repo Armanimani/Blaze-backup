@@ -19,25 +19,16 @@ jobs:
         uses: actions/checkout@v2.1.0
         with:
           submodules: recursive
-      
-      - name: Create build environment
-        run: |
-          mkdir build
-
-      - name: Configure - Release
-        run: |
-          cd build 
-          cmake .. -G "Visual Studio 16 2019" -A x64 -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True -DCMAKE_BUILD_TYPE=RELEASE
-    
-      - name: Configure - Debug
-        run: |
-          cd build 
-          cmake .. -G "Visual Studio 16 2019" -A x64 -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True -DCMAKE_BUILD_TYPE=RELEASE
-      
+     
       - name: Build
-        run: |
-          cd build
-          msbuild Blaze.sln
+        uses: lukka/run-cmake@v2
+        with:
+          cmakeListsTxtPath: ${{ github.workspace }}/CMakeLists.txt
+          buildDirectory: ${{ github.workspace }}/build
+          cmakeBuildType: ${{ matrix.configuration }}    
+          buildWithCMake: true
+          cmakeGenerator: VS16Win64 
+          buildWithCMakeArgs: -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True -DCMAKE_BUILD_TYPE=RELEASE -A x64 
       
       - name: Test
-        run: cd build && ctest
+        run: ctest -c ${{ matrix.configuration }}
