@@ -20,23 +20,19 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Configure
-        run: |
-          mkdir build
-          mkdir install
-          cd build 
-          cmake ..
-    
-      - name: Build - Release
-        if: matrix.configuration == 'Release'
-        run: cmake -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True -DCMAKE_BUILD_TYPE=RELEASE --build build
-      
-      - name: Build - Debug
-        if: matrix.configuration == 'Debug'
-        run: cmake -DENABLE_IPO:BOOL=False -DENABLE_TESTING:BOOL=True -DCMAKE_BUILD_TYPE=DEBUG --build build
+      - name: Build
+        uses: lukka/run-cmake@v2
+        with:
+          cmakeListsOrSettingsJson: CMakeListsTxtAdvanced
+          cmakeListsTxtPath: 'CMakeLists.txt'
+          buildDirectory: 'build'
+          cmakeBuildType: ${{ matrix.configuration }}  
+          buildWithCMake: true
+          cmakeGenerator: VS19Win64 
+          buildWithCMakeArgs: --config ${{ matrix.configuration }}
       
       - name: Test
-        run: cd build && ctest
+        run: ctest -C ${{ matrix.configuration }}
         
       - name: Install
         run: cmake install
