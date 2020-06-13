@@ -35,3 +35,8 @@ jobs:
         run: |
           cd build
           ctest -C ${{ matrix.configuration }}
+      
+      - name: install
+        run: |
+          cd build
+          cmake --install ../install --config ${{ matrix.configuration }} 
