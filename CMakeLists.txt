@@ -16,8 +16,8 @@ add_library(blaze_project_warnings INTERFACE)
 if(NOT APPLE)
 	# TODO: The settings specified in compiler warning here are not compatible with macos, these need to be updated
 	include(cmake/CompilerWarnings.cmake)
+	set_project_warnings(blaze_project_warnings)
 endif()
-set_project_warnings(blaze_project_warnings)
 
 add_library(Blaze::ProjectWarnings ALIAS blaze_project_warnings)
 
