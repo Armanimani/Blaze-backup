@@ -29,7 +29,7 @@ jobs:
           cmakeBuildType: ${{ matrix.configuration }}  
           buildWithCMake: true
           cmakeGenerator: VS19Win64 
-          buildWithCMakeArgs: --config ${{ matrix.configuration }}
+          buildWithCMakeArgs: --config ${{ matrix.configuration }} -DENABLE_IPO:BOOL=True -DENABLE_TESTING:BOOL=True
       
       - name: Test
         run: ctest -C ${{ matrix.configuration }}
