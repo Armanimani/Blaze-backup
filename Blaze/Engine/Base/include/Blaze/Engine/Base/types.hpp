@@ -13,4 +13,9 @@ namespace blaze::base
 	using UInt32 = unsigned __int32;
 	using UInt64 = unsigned __int64;
 	using UInt128 = unsigned __int128;
+
+	using Float = float;
+	using Double = double;
+
+	using Bool = bool;
 }
