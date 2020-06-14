@@ -1,7 +1,6 @@
  add_library(
 	blaze_engine_base
-	src/app.cpp
-)
+	"src/Types/Vector2.cpp")
 
 target_include_directories(blaze_engine_base 
 	INTERFACE
@@ -13,7 +12,7 @@ target_include_directories(blaze_engine_base
 
 target_link_libraries(
 	blaze_engine_base
-	INTERFACE Blaze::ProjectOption Blaze::ProjectWarnings
+	PUBLIC Blaze::ProjectOption Blaze::ProjectWarnings DirectXMath
 )
 
 add_library(Blaze::Engine::Base ALIAS blaze_engine_base)
