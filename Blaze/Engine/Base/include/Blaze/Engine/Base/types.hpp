@@ -1,18 +1,19 @@
 #pragma once
 
+#include <cstdint>
 #include <cstdlib>
 
 namespace blaze::base
 {
-	using Int8 = _int8;
-	using Int16 = _int16;
-	using Int32 = _int32;
-	using Int64 = _int64;
+	using Int8 = int_fast8_t;
+	using Int16 = int_fast16_t;
+	using Int32 = int_fast32_t;
+	using Int64 = int_fast64_t;
 
-	using UInt8 = unsigned _int8;
-	using UInt16 = unsigned _int16;
-	using UInt32 = unsigned _int32;
-	using UInt64 = unsigned _int64;
+	using UInt8 = uint_fast8_t;
+	using UInt16 = uint_fast16_t;
+	using UInt32 = uint_fast32_t;
+	using UInt64 = uint_fast64_t;
 
 	using Float = float;
 	using Double = double;
