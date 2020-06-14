@@ -1,6 +1,6 @@
 add_executable(
 	blaze_test_engine_base
-	"Types/test_types.cpp"
+	"Types/test_base_types.cpp"
 )
 
 target_link_libraries(

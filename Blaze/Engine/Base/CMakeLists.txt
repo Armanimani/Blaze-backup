@@ -1,7 +1,6 @@
  add_library(
 	blaze_engine_base
-	src/app.cpp
- "include/Blaze/Engine/Base/types.hpp")
+	src/app.cpp)
 
 target_include_directories(blaze_engine_base 
 	INTERFACE

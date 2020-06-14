@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Blaze/Engine/Base/types.hpp"
+#include "Blaze/Engine/Base/base_types.hpp"
 
 using namespace blaze::base;
 
