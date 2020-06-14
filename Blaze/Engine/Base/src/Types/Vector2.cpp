@@ -2,6 +2,7 @@
 
 #include <DirectXMath.h>
 #include <cassert>
+#include <cmath>
 
 namespace blaze::base
 {
@@ -107,5 +108,59 @@ namespace blaze::base
 	{
 		x = x_value;
 		y = y_value;
+	}
+
+	Float Vector2::length() const noexcept
+	{
+		const auto vec = XMLoadFloat2(this);
+		const auto result = XMVector2Length(vec);
+		return XMVectorGetX(result);
+	}
+	
+	Float Vector2::lengthSquared() const noexcept
+	{
+		const auto vec = XMLoadFloat2(this);
+		const auto result = XMVector2LengthSq(vec);
+		return XMVectorGetX(result);
+	}
+	
+	Float Vector2::dot(const Vector2& other) const noexcept
+	{
+		const auto v1 = XMLoadFloat2(this);
+		const auto v2 = XMLoadFloat2(&other);
+		const auto result = XMVector2Dot(v1, v2);
+		return XMVectorGetX(result);
+	}
+	
+	Vector2 Vector2::cross(const Vector2& other) const noexcept
+	{
+		const auto v1 = XMLoadFloat2(this);
+		const auto v2 = XMLoadFloat2(&other);
+		const auto cross_vector = XMVector2Cross(v1, v2);
+
+		Vector2 result;
+		XMStoreFloat2(&result, cross_vector);
+		return result;
+	}
+	
+	void Vector2::normalize() noexcept
+	{
+		const auto vec = XMLoadFloat2(this);
+		const auto result = XMVector2Normalize(vec);
+		XMStoreFloat2(this, result);
+	}
+	
+	Bool Vector2::isNormalize() const noexcept
+	{
+		return std::fabs(lengthSquared() - 1.0f) <= FLT_EPSILON;
+	}
+	
+	void Vector2::clamp(const Vector2& min, const Vector2& max) noexcept
+	{
+		const auto vec = XMLoadFloat2(this);
+		const auto vec_min = XMLoadFloat2(&min);
+		const auto vec_max = XMLoadFloat2(&max);
+		const auto result = XMVectorClamp(vec, vec_min, vec_max);
+		XMStoreFloat2(this, result);
 	}
 }

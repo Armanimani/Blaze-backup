@@ -39,5 +39,17 @@ namespace blaze::base
 		void setX(Float value) noexcept;
 		void setY(Float value) noexcept;
 		void setValues(Float x_value, Float y_value) noexcept;
+
+		[[nodiscard]] Float length() const noexcept;
+		[[nodiscard]] Float lengthSquared() const noexcept;
+
+		[[nodiscard]] Float dot(const Vector2& other) const noexcept;
+		
+		[[nodiscard]] Vector2 cross(const Vector2& other) const noexcept;
+
+		void normalize() noexcept;
+		[[nodiscard]] Bool isNormalize() const noexcept;
+
+		void clamp(const Vector2& min, const Vector2& max) noexcept;
 	};
 }
