@@ -6,6 +6,13 @@
 
 namespace blaze::base
 {
+	/* Static constants */
+	const Vector2 Vector2::k_zero = { 0.0f, 0.0f };
+	const Vector2 Vector2::k_one = { 1.0f, 1.0f };
+	const Vector2 Vector2::k_unit_x = { 1.0f, 0.0f };
+	const Vector2 Vector2::k_unit_y = { 0.0f, 1.0f };
+
+	/* Function definitions */
 	using namespace DirectX;
 	
 	Vector2::Vector2() noexcept

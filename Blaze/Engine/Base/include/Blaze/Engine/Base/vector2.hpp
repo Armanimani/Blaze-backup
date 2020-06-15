@@ -59,6 +59,11 @@ namespace blaze::base
 		[[nodiscard]] Bool isNormalize() const noexcept;
 
 		void clamp(const Vector2& min, const Vector2& max) noexcept;
+
+		static const Vector2 k_zero;
+		static const Vector2 k_one;
+		static const Vector2 k_unit_x;
+		static const Vector2 k_unit_y;
 	};
 
 	/* Stand-alone functions */
@@ -69,5 +74,4 @@ namespace blaze::base
 	Vector2 operator*(Float lhs, const Vector2& rhs) noexcept;
 	Vector2 operator/(const Vector2& lhs, const Vector2& rhs) noexcept;
 	Vector2 operator/(const Vector2& lhs, Float rhs) noexcept;
-	
 }
