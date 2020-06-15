@@ -221,3 +221,61 @@ TEST(vector2, clamp)
 	ASSERT_FLOAT_EQ(vec.getX(), -1.5f);
 	ASSERT_FLOAT_EQ(vec.getY(), -1.0f);
 }
+
+TEST(vector2, operator_plus)
+{
+	const auto vec1 = Vector2{ 1.0f, 2.0f };
+	const auto vec2 = Vector2{ 3.0f, 4.0f };
+	const auto result = vec1 + vec2;
+	ASSERT_FLOAT_EQ(result.getX(), 4.0f);
+	ASSERT_FLOAT_EQ(result.getY(), 6.0f);
+}
+
+TEST(vector2, operator_minus)
+{
+	const auto vec1 = Vector2{ 1.0f, 2.0f };
+	const auto vec2 = Vector2{ 3.0f, 4.0f };
+	const auto result = vec1 - vec2;
+	ASSERT_FLOAT_EQ(result.getX(), -2.0f);
+	ASSERT_FLOAT_EQ(result.getY(), -2.0f);
+}
+
+TEST(vector2, operator_multiply)
+{
+	const auto vec1 = Vector2{ 1.0f, 2.0f };
+	const auto vec2 = Vector2{ 3.0f, 4.0f };
+	const auto result = vec1 * vec2;
+	ASSERT_FLOAT_EQ(result.getX(), 3.0f);
+	ASSERT_FLOAT_EQ(result.getY(), 8.0f);
+}
+
+TEST(vector2, operator_multiply_scalar)
+{
+	const auto vec = Vector2{ 1.0f, 2.0f };
+	
+	const auto result_pre_multiply = 2.0f * vec;
+	ASSERT_FLOAT_EQ(result_pre_multiply.getX(), 2.0f);
+	ASSERT_FLOAT_EQ(result_pre_multiply.getY(), 4.0f);
+
+	const auto result_post_multiply =  vec * 2.0f;
+	ASSERT_FLOAT_EQ(result_post_multiply.getX(), 2.0f);
+	ASSERT_FLOAT_EQ(result_post_multiply.getY(), 4.0f);
+}
+
+TEST(vector2, operator_divide)
+{
+	const auto vec1 = Vector2{ 1.0f, 2.0f };
+	const auto vec2 = Vector2{ 2.0f, 4.0f };
+	const auto result = vec1 / vec2;
+	ASSERT_FLOAT_EQ(result.getX(), 0.5f);
+	ASSERT_FLOAT_EQ(result.getY(), 0.5f);
+}
+
+TEST(vector2, operator_divide_scalar)
+{
+	const auto vec = Vector2{ 1.0f, 2.0f };
+
+	const auto result_pre_multiply = vec / 2;
+	ASSERT_FLOAT_EQ(result_pre_multiply.getX(), 0.5f);
+	ASSERT_FLOAT_EQ(result_pre_multiply.getY(), 1.0f);
+}

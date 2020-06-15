@@ -163,4 +163,79 @@ namespace blaze::base
 		const auto result = XMVectorClamp(vec, vec_min, vec_max);
 		XMStoreFloat2(this, result);
 	}
+
+	Vector2 operator+(const Vector2& lhs, const Vector2& rhs) noexcept
+	{
+		const auto vec_lhs = XMLoadFloat2(&lhs);
+		const auto vec_rhs = XMLoadFloat2(&rhs);
+		const auto vec_result = XMVectorAdd(vec_lhs, vec_rhs);
+
+		Vector2 result{};
+		XMStoreFloat2(&result, vec_result);
+		return result;
+	}
+	
+	Vector2 operator-(const Vector2& lhs, const Vector2& rhs) noexcept
+	{
+		const auto vec_lhs = XMLoadFloat2(&lhs);
+		const auto vec_rhs = XMLoadFloat2(&rhs);
+		const auto vec_result = XMVectorSubtract(vec_lhs, vec_rhs);
+
+		Vector2 result{};
+		XMStoreFloat2(&result, vec_result);
+		return result;
+	}
+	
+	Vector2 operator*(const Vector2& lhs, const Vector2& rhs) noexcept
+	{
+		const auto vec_lhs = XMLoadFloat2(&lhs);
+		const auto vec_rhs = XMLoadFloat2(&rhs);
+		const auto vec_result = XMVectorMultiply(vec_lhs, vec_rhs);
+
+		Vector2 result{};
+		XMStoreFloat2(&result, vec_result);
+		return result;
+	}
+	
+	Vector2 operator*(const Vector2& lhs, const Float rhs) noexcept
+	{
+		const auto vec_lhs = XMLoadFloat2(&lhs);
+		const auto vec_result = XMVectorScale(vec_lhs, rhs);
+
+		Vector2 result{};
+		XMStoreFloat2(&result, vec_result);
+		return result;
+	}
+	
+	Vector2 operator*(const Float lhs, const Vector2& rhs) noexcept
+	{
+		const auto vec_rhs = XMLoadFloat2(&rhs);
+		const auto vec_result = XMVectorScale(vec_rhs, lhs);
+
+		Vector2 result{};
+		XMStoreFloat2(&result, vec_result);
+		return result;
+	}
+	
+	Vector2 operator/(const Vector2& lhs, const Vector2& rhs) noexcept
+	{
+		const auto vec_lhs = XMLoadFloat2(&lhs);
+		const auto vec_rhs = XMLoadFloat2(&rhs);
+		const auto vec_result = XMVectorDivide(vec_lhs, vec_rhs);
+
+		Vector2 result{};
+		XMStoreFloat2(&result, vec_result);
+		return result;
+	}
+	
+	Vector2 operator/(const Vector2& lhs, const Float rhs) noexcept
+	{
+		assert(rhs != 0.0f);
+		const auto vec_lhs = XMLoadFloat2(&lhs);
+		const auto vec_result = XMVectorScale(vec_lhs, 1.0f / rhs);
+
+		Vector2 result{};
+		XMStoreFloat2(&result, vec_result);
+		return result;
+	}
 }

@@ -20,6 +20,14 @@ namespace blaze::base
 		Vector2(Vector2&& other) noexcept = default;
 		Vector2& operator=(Vector2&& other) noexcept = default;
 
+		friend Vector2 operator+(const Vector2& lhs, const Vector2& rhs) noexcept;
+		friend Vector2 operator-(const Vector2& lhs, const Vector2& rhs) noexcept;
+		friend Vector2 operator*(const Vector2& lhs, const Vector2& rhs) noexcept;
+		friend Vector2 operator*(const Vector2& lhs, Float rhs) noexcept;
+		friend Vector2 operator*(Float lhs, const Vector2& rhs) noexcept;
+		friend Vector2 operator/(const Vector2& lhs, const Vector2& rhs) noexcept;
+		friend Vector2 operator/(const Vector2& lhs, Float rhs) noexcept;
+		
 		bool operator==(const Vector2& other) const noexcept;
 		bool operator!=(const Vector2& other) const noexcept;
 
@@ -52,4 +60,14 @@ namespace blaze::base
 
 		void clamp(const Vector2& min, const Vector2& max) noexcept;
 	};
+
+	/* Stand-alone functions */
+	Vector2 operator+(const Vector2& lhs, const Vector2& rhs) noexcept;
+	Vector2 operator-(const Vector2& lhs, const Vector2& rhs) noexcept;
+	Vector2 operator*(const Vector2& lhs, const Vector2& rhs) noexcept;
+	Vector2 operator*(const Vector2& lhs, Float rhs) noexcept;
+	Vector2 operator*(Float lhs, const Vector2& rhs) noexcept;
+	Vector2 operator/(const Vector2& lhs, const Vector2& rhs) noexcept;
+	Vector2 operator/(const Vector2& lhs, Float rhs) noexcept;
+	
 }
