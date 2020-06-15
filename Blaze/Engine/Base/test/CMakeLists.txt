@@ -3,6 +3,7 @@ add_executable(
 	Types/test_base_types.cpp
 	Types/test_vector2.cpp 
 	Types/test_vector3.cpp
+	Types/test_vector4.cpp
 )
 
 target_link_libraries(

@@ -2,7 +2,8 @@
 	blaze_engine_base
 	src/Types/Vector2.cpp 
 	src/Types/Vector3.cpp
-)
+	src/Types/Vector4.cpp
+ )
 
 target_include_directories(blaze_engine_base 
 	INTERFACE
