@@ -1,7 +1,9 @@
 add_executable(
 	blaze_test_engine_base
-	"Types/test_base_types.cpp"
-	"Types/test_vector2.cpp")
+	Types/test_base_types.cpp
+	Types/test_vector2.cpp 
+	Types/test_vector3.cpp
+)
 
 target_link_libraries(
 	blaze_test_engine_base
