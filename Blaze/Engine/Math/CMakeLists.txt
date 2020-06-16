@@ -1,11 +1,9 @@
  add_library(
-	blaze_engine_base
-	src/Types/Vector2.cpp 
-	src/Types/Vector3.cpp
-	src/Types/Vector4.cpp
+	blaze_engine_math
+	"private/IntVector2.cpp"
  )
 
-target_include_directories(blaze_engine_base 
+target_include_directories(blaze_engine_math 
 	INTERFACE
 		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 		$<INSTALL_INTERFACE:include>
@@ -14,10 +12,10 @@ target_include_directories(blaze_engine_base
 )
 
 target_link_libraries(
-	blaze_engine_base
+	blaze_engine_math
 	PUBLIC Blaze::ProjectOption Blaze::ProjectWarnings DirectXMath
 )
 
-add_library(Blaze::Engine::Base ALIAS blaze_engine_base)
+add_library(Blaze::Engine::Math ALIAS blaze_engine_math)
 
 add_subdirectory(test)
