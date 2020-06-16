@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "Blaze/Engine/Base/types.hpp"
+#include "Blaze/Engine/Math/Types/base_types.hpp"
 
-using namespace blaze::base;
+using namespace blaze;
 
 constexpr int k_size_1_byte = 1;
 constexpr int k_size_2_byte = 2;

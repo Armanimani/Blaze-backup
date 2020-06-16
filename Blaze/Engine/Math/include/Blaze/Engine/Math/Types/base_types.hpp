@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <cstdlib>
 
-namespace blaze::base
+namespace blaze
 {
 	using Int8 = int_fast8_t;
 	using Int16 = int_fast16_t;
@@ -19,4 +19,7 @@ namespace blaze::base
 	using Double = double;
 
 	using Bool = bool;
+
+	/* Aliases */
+	using Size_t = UInt64;
 }

@@ -7,6 +7,7 @@ add_library(GTest::GMock::Main ALIAS gmock_main)
 
 # DirectXMath
 add_library(DirectXMath INTERFACE)
+
 target_include_directories(DirectXMath INTERFACE
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/DirectXMath/inc>
 	$<INSTALL_INTERFACE:DirectXMath/inc> 

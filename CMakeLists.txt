@@ -48,7 +48,7 @@ add_subdirectory(Blaze)
 # Install
 install(
 	TARGETS
-		blaze_engine_base
+		blaze_engine_math
 	LIBRARY DESTINATION lib
 	ARCHIVE DESTINATION lib
 	RUNTIME DESTINATION bin
