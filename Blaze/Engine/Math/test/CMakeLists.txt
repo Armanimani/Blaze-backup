@@ -1,8 +1,8 @@
 add_executable(
 	blaze_test_engine_math
-	"test_base_types.cpp"
-	"test_IntVector2.cpp"
-)
+	"Types/test_base_types.cpp"
+	"Types/test_IntVector2.cpp"
+	"test_utilities.cpp")
 
 target_link_libraries(
 	blaze_test_engine_math

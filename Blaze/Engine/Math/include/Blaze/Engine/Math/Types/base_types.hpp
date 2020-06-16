@@ -19,4 +19,7 @@ namespace blaze
 	using Double = double;
 
 	using Bool = bool;
+
+	/* Aliases */
+	using Size_t = UInt64;
 }

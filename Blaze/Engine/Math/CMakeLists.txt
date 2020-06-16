@@ -1,7 +1,7 @@
  add_library(
 	blaze_engine_math
-	"private/IntVector2.cpp"
- )
+	"private/Types/IntVector2.cpp"
+)
 
 target_include_directories(blaze_engine_math 
 	INTERFACE
