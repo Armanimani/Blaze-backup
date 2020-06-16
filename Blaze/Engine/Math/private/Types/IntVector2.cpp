@@ -6,9 +6,14 @@
 
 namespace blaze
 {
+	constexpr Int32 k_min_index = 0;
+	constexpr Int32 k_max_index = 1;
+
+	
 	const IntVector2 IntVector2::k_zero{0, 0};
 	const IntVector2 IntVector2::k_unit_x{1, 0};
 	const IntVector2 IntVector2::k_unit_y{0, 1};
+
 	
 	IntVector2::IntVector2(const Int32 uniform_value)
 		: x{ uniform_value }, y{uniform_value} {}
@@ -18,27 +23,27 @@ namespace blaze
 
 	const Int32& IntVector2::operator()(const Int32 index) const noexcept
 	{
-		assert(index >= 0 && index < 2);
+		assert(index >= k_min_index && index <= k_max_index);
 		
 		return (&x)[index];
 	}
 	
 	Int32& IntVector2::operator()(const Int32 index) noexcept
 	{
-		assert(index >= 0 && index < 2);
+		assert(index >= k_min_index && index <= k_max_index);
 		
 		return (&x)[index];
 	}
 	
 	const Int32& IntVector2::operator[](const Int32 index) const noexcept
 	{
-		assert(index >= 0 && index < 2);
+		assert(index >= k_min_index && index <= k_max_index);
 		
 		return (&x)[index];
 	}
 	Int32& IntVector2::operator[](const Int32 index) noexcept
 	{
-		assert(index >= 0 && index < 2);
+		assert(index >= k_min_index && index <= k_max_index);
 		
 		return (&x)[index];
 	}

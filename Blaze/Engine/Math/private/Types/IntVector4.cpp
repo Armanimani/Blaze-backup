@@ -5,12 +5,17 @@
 
 namespace blaze
 {
+	constexpr Int32 k_min_index = 0;
+	constexpr Int32 k_max_index = 3;
+
+	
 	const IntVector4 IntVector4::k_zero{ 0, 0, 0, 0 };
 	const IntVector4 IntVector4::k_unit_x{ 1, 0, 0, 0 };
 	const IntVector4 IntVector4::k_unit_y{ 0, 1, 0, 0 };
 	const IntVector4 IntVector4::k_unit_z{ 0, 0, 1, 0 };
 	const IntVector4 IntVector4::k_unit_w{ 0, 0, 0, 1 };
 
+	
 	IntVector4::IntVector4(const Int32 uniform_value)
 		: x{ uniform_value }, y{ uniform_value }, z{ uniform_value }, w{ uniform_value }{}
 
@@ -19,28 +24,28 @@ namespace blaze
 
 	const Int32& IntVector4::operator()(const Int32 index) const noexcept
 	{
-		assert(index >= 0 && index < 4);
+		assert(index >= k_min_index && index <= k_max_index);
 
 		return (&x)[index];
 	}
 
 	Int32& IntVector4::operator()(const Int32 index) noexcept
 	{
-		assert(index >= 0 && index < 4);
+		assert(index >= k_min_index && index <= k_max_index);
 
 		return (&x)[index];
 	}
 
 	const Int32& IntVector4::operator[](const Int32 index) const noexcept
 	{
-		assert(index >= 0 && index < 4);
+		assert(index >= k_min_index && index <= k_max_index);
 
 		return (&x)[index];
 	}
 
 	Int32& IntVector4::operator[](const Int32 index) noexcept
 	{
-		assert(index >= 0 && index < 4);
+		assert(index >= k_min_index && index <= k_max_index);
 
 		return (&x)[index];
 	}
