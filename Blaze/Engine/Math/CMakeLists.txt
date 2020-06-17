@@ -2,7 +2,8 @@
 	blaze_engine_math
 	"private/Types/IntVector2.cpp"
 	"private/Types/IntVector3.cpp" 
-	"private/Types/IntVector4.cpp")
+	"private/Types/IntVector4.cpp"
+	"private/Types/FloatVector3.cpp")
 
 target_include_directories(blaze_engine_math 
 	INTERFACE

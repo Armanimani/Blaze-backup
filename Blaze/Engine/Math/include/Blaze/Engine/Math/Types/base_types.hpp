@@ -22,4 +22,7 @@ namespace blaze
 
 	/* Aliases */
 	using Size_t = UInt64;
+
+	/* Constants */
+	constexpr Float k_floating_point_precision = 1.0E-7f;
 }
