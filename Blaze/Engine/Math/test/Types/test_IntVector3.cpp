@@ -138,6 +138,12 @@ TEST(IntVector3, static_variables)
 	ASSERT_TRUE(IntVector3::k_unit_x == IntVector3(1, 0, 0));
 	ASSERT_TRUE(IntVector3::k_unit_y == IntVector3(0, 1, 0));
 	ASSERT_TRUE(IntVector3::k_unit_z == IntVector3(0, 0, 1));
+	ASSERT_TRUE(IntVector3::k_up == IntVector3(0, 0, 1));
+	ASSERT_TRUE(IntVector3::k_down == IntVector3(0, 0, -1));
+	ASSERT_TRUE(IntVector3::k_right == IntVector3(0, 1, 0));
+	ASSERT_TRUE(IntVector3::k_left == IntVector3(0, -1, 0));
+	ASSERT_TRUE(IntVector3::k_forward == IntVector3(1, 0, 0));
+	ASSERT_TRUE(IntVector3::k_backward == IntVector3(-1, 0, 0));
 }
 
 TEST(IntVector3, operator_plus)

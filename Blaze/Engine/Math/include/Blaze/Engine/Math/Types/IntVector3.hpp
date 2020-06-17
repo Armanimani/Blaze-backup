@@ -46,6 +46,12 @@ namespace blaze
 		static const IntVector3 k_unit_x;
 		static const IntVector3 k_unit_y;
 		static const IntVector3 k_unit_z;
+		static const IntVector3 k_up;
+		static const IntVector3 k_down;
+		static const IntVector3 k_right;
+		static const IntVector3 k_left;
+		static const IntVector3 k_forward;
+		static const IntVector3 k_backward;
 	};
 
 

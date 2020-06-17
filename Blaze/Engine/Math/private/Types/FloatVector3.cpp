@@ -10,6 +10,9 @@ namespace blaze
 
 
 	const FloatVector3 FloatVector3::k_zero{ 0.0f, 0.0f, 0.0f };
+	const FloatVector3 FloatVector3::k_unit_x{ 1.0f, 0.0f, 0.0f };
+	const FloatVector3 FloatVector3::k_unit_y{ 0.0f, 1.0f, 0.0f };
+	const FloatVector3 FloatVector3::k_unit_z{ 0.0f, 0.0f, 1.0f };
 	const FloatVector3 FloatVector3::k_up{ 0.0f, 0.0f, 1.0f };
 	const FloatVector3 FloatVector3::k_down{ 0.0f, 0.0f, -1.0f };
 	const FloatVector3 FloatVector3::k_right{ 0.0f, 1.0f, 0.0f };

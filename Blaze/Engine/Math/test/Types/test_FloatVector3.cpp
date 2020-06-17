@@ -232,6 +232,9 @@ TEST(FloatVector3, normalize_isNormalize)
 TEST(FloatVector3, static_variables)
 {
 	ASSERT_TRUE(FloatVector3::k_zero == FloatVector3( 0.0f, 0.0f, 0.0f ));
+	ASSERT_TRUE(FloatVector3::k_unit_x == FloatVector3(1.0f, 0.0f, 0.0f));
+	ASSERT_TRUE(FloatVector3::k_unit_y == FloatVector3(0.0f, 1.0f, 0.0f));
+	ASSERT_TRUE(FloatVector3::k_unit_z == FloatVector3(0.0f, 0.0f, 1.0f));
 	ASSERT_TRUE(FloatVector3::k_up == FloatVector3(0.0f, 0.0f, 1.0f));
 	ASSERT_TRUE(FloatVector3::k_down == FloatVector3(0.0f, 0.0f, -1.0f));
 	ASSERT_TRUE(FloatVector3::k_right == FloatVector3(0.0f, 1.0f, 0.0f));

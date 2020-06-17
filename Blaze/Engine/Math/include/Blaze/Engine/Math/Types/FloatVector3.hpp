@@ -60,6 +60,9 @@ namespace blaze
 		[[nodiscard]] Bool isNormalized(Float tolerance = k_floating_point_precision) const noexcept;
 
 		static const FloatVector3 k_zero;
+		static const FloatVector3 k_unit_x;
+		static const FloatVector3 k_unit_y;
+		static const FloatVector3 k_unit_z;
 		static const FloatVector3 k_up;
 		static const FloatVector3 k_down;
 		static const FloatVector3 k_right;
