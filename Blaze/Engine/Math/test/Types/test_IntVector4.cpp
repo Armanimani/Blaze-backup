@@ -34,6 +34,28 @@ TEST(IntVector4, constructor_values)
 	ASSERT_EQ(vector.w, 4);
 }
 
+TEST(IntVector4, constructor_Int2Vector)
+{
+	const IntVector2 other{ 1, 2 };
+	const IntVector4 vector(other);
+
+	ASSERT_EQ(vector.x, 1);
+	ASSERT_EQ(vector.y, 2);
+	ASSERT_EQ(vector.z, 0);
+	ASSERT_EQ(vector.w, 0);
+}
+
+TEST(IntVector4, constructor_Int3Vector)
+{
+	const IntVector3 other{ 1, 2, 3 };
+	const IntVector4 vector(other);
+
+	ASSERT_EQ(vector.x, 1);
+	ASSERT_EQ(vector.y, 2);
+	ASSERT_EQ(vector.z, 3);
+	ASSERT_EQ(vector.w, 0);
+}
+
 TEST(IntVector4, operator_paranthesis)
 {
 	IntVector4 vector{ 1, 2, 3, 4 };

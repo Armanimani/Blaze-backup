@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Blaze/Engine/Math/Types/base_types.hpp"
+#include "Blaze/Engine/Math/Types/IntVector2.hpp"
 
 namespace blaze
 {
@@ -14,6 +15,8 @@ namespace blaze
 		IntVector3() = default;
 		explicit IntVector3(Int32 uniform_value);
 		IntVector3(Int32 x_value, Int32 y_value, Int32 z_value);
+
+		explicit IntVector3(const IntVector2& vector);
 
 		IntVector3(const IntVector3&) = default;
 		IntVector3(IntVector3&&) = default;
@@ -46,6 +49,12 @@ namespace blaze
 		static const IntVector3 k_unit_x;
 		static const IntVector3 k_unit_y;
 		static const IntVector3 k_unit_z;
+		static const IntVector3 k_up;
+		static const IntVector3 k_down;
+		static const IntVector3 k_right;
+		static const IntVector3 k_left;
+		static const IntVector3 k_forward;
+		static const IntVector3 k_backward;
 	};
 
 

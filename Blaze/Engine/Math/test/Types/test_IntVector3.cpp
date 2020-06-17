@@ -31,6 +31,16 @@ TEST(IntVector3, constructor_values)
 	ASSERT_EQ(vector.z, 3);
 }
 
+TEST(IntVector3, constructor_IntVector2)
+{
+	const IntVector2 other{ 1, 2 };
+	const IntVector3 vector(other);
+
+	ASSERT_EQ(vector.x, 1);
+	ASSERT_EQ(vector.y, 2);
+	ASSERT_EQ(vector.z, 0);
+}
+
 TEST(IntVector3, operator_paranthesis)
 {
 	IntVector3 vector{ 1, 2, 3 };
@@ -138,6 +148,12 @@ TEST(IntVector3, static_variables)
 	ASSERT_TRUE(IntVector3::k_unit_x == IntVector3(1, 0, 0));
 	ASSERT_TRUE(IntVector3::k_unit_y == IntVector3(0, 1, 0));
 	ASSERT_TRUE(IntVector3::k_unit_z == IntVector3(0, 0, 1));
+	ASSERT_TRUE(IntVector3::k_up == IntVector3(0, 0, 1));
+	ASSERT_TRUE(IntVector3::k_down == IntVector3(0, 0, -1));
+	ASSERT_TRUE(IntVector3::k_right == IntVector3(0, 1, 0));
+	ASSERT_TRUE(IntVector3::k_left == IntVector3(0, -1, 0));
+	ASSERT_TRUE(IntVector3::k_forward == IntVector3(1, 0, 0));
+	ASSERT_TRUE(IntVector3::k_backward == IntVector3(-1, 0, 0));
 }
 
 TEST(IntVector3, operator_plus)

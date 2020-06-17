@@ -13,6 +13,12 @@ namespace blaze
 	const IntVector3 IntVector3::k_unit_x{ 1, 0, 0 };
 	const IntVector3 IntVector3::k_unit_y{ 0, 1, 0 };
 	const IntVector3 IntVector3::k_unit_z{ 0, 0, 1 };
+	const IntVector3 IntVector3::k_up{ 0, 0, 1 };
+	const IntVector3 IntVector3::k_down{ 0, 0, -1 };
+	const IntVector3 IntVector3::k_right{ 0, 1, 0 };
+	const IntVector3 IntVector3::k_left{ 0, -1, 0 };
+	const IntVector3 IntVector3::k_forward{ 1, 0, 0 };
+	const IntVector3 IntVector3::k_backward{ -1, 0, 0 };
 
 	
 	IntVector3::IntVector3(const Int32 uniform_value)
@@ -20,6 +26,9 @@ namespace blaze
 
 	IntVector3::IntVector3(const Int32 x_value, const Int32 y_value, const Int32 z_value)
 		: x{ x_value }, y{ y_value }, z{ z_value }{}
+
+	IntVector3::IntVector3(const IntVector2& vector)
+		: x{ vector.x }, y{ vector.y }{}
 
 	const Int32& IntVector3::operator()(const Int32 index) const noexcept
 	{

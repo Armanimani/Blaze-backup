@@ -22,6 +22,12 @@ namespace blaze
 	IntVector4::IntVector4(const Int32 x_value, const Int32 y_value, const Int32 z_value, const Int32 w_value)
 		: x{ x_value }, y{ y_value }, z{ z_value }, w{ w_value }{}
 
+	IntVector4::IntVector4(const IntVector2& vector)
+		: x{ vector.x }, y{ vector.y } {}
+	
+	IntVector4::IntVector4(const IntVector3& vector)
+		: x{ vector.x }, y{ vector.y }, z{ vector.z } {}
+
 	const Int32& IntVector4::operator()(const Int32 index) const noexcept
 	{
 		assert(index >= k_min_index && index <= k_max_index);
