@@ -5,6 +5,7 @@ add_executable(
 	"Types/test_IntVector2.cpp"
 	"Types/test_IntVector3.cpp" 
 	"Types/test_IntVector4.cpp" 
+	"Types/test_FloatVector2.cpp" 
 	"Types/test_FloatVector3.cpp")
 
 target_link_libraries(
