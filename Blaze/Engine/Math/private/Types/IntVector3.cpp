@@ -27,6 +27,9 @@ namespace blaze
 	IntVector3::IntVector3(const Int32 x_value, const Int32 y_value, const Int32 z_value)
 		: x{ x_value }, y{ y_value }, z{ z_value }{}
 
+	IntVector3::IntVector3(const IntVector2& vector)
+		: x{ vector.x }, y{ vector.y }{}
+
 	const Int32& IntVector3::operator()(const Int32 index) const noexcept
 	{
 		assert(index >= k_min_index && index <= k_max_index);

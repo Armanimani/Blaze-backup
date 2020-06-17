@@ -31,6 +31,16 @@ TEST(IntVector3, constructor_values)
 	ASSERT_EQ(vector.z, 3);
 }
 
+TEST(IntVector3, constructor_IntVector2)
+{
+	const IntVector2 other{ 1, 2 };
+	const IntVector3 vector(other);
+
+	ASSERT_EQ(vector.x, 1);
+	ASSERT_EQ(vector.y, 2);
+	ASSERT_EQ(vector.z, 0);
+}
+
 TEST(IntVector3, operator_paranthesis)
 {
 	IntVector3 vector{ 1, 2, 3 };
