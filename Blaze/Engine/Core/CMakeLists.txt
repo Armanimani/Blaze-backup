@@ -6,7 +6,8 @@
 	"private/Math/FloatVector2.cpp" 
 	"private/Math/FloatVector3.cpp" 
 	"private/Math/FloatVector4.cpp"
-	"private/Math/Matrix4X4.cpp")
+	"private/Math/Matrix4X4.cpp" "include/Blaze/Engine/Core/Types/HashedString.hpp"
+	)
 
 target_include_directories(blaze_engine_core
 	INTERFACE

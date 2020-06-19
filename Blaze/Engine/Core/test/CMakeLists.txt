@@ -1,6 +1,8 @@
 add_executable(
 	blaze_test_engine_core
 	"Types/test_base_types.cpp"
+	"Types/test_fnv1a_hash.cpp"
+	"Types/test_HashedString.cpp"
 	"Math/test_utilities.cpp" 
 	"Math/test_IntVector2.cpp"
 	"Math/test_IntVector3.cpp" 
