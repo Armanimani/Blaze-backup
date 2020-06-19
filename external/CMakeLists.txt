@@ -12,3 +12,6 @@ target_include_directories(DirectXMath INTERFACE
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/DirectXMath/inc>
 	$<INSTALL_INTERFACE:DirectXMath/inc> 
 )
+
+# Spdlog
+add_subdirectory(spdlog)
