@@ -1,4 +1,5 @@
 add_subdirectory(Core)
+add_subdirectory(SpdLog)
 
  add_library(
 	blaze_engine
@@ -7,7 +8,11 @@ add_subdirectory(Core)
 
 target_link_libraries(
 	blaze_engine
-	INTERFACE Blaze::ProjectOption Blaze::ProjectWarnings Blaze::Engine::Core
+	INTERFACE 
+		Blaze::ProjectOption 
+		Blaze::ProjectWarnings 
+		Blaze::Engine::Core
+		Blaze::Engine::SpdLog
 )
 
 add_library(Blaze::Engine ALIAS blaze_engine)

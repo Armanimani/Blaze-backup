@@ -6,7 +6,7 @@ void MockConsoleLoggerAdapter::logCritical(const blaze::StringView channel, cons
 	*last_message_logged = log_message;
 }
 
-void MockConsoleLoggerAdapter::logWarning(const blaze::StringView channel, blaze::StringView log_message) noexcept
+void MockConsoleLoggerAdapter::logWarning(const blaze::StringView channel, const blaze::StringView log_message) noexcept
 {
 	*last_channel_logged = channel;
 	*last_message_logged = log_message;
