@@ -1,43 +1,20 @@
 #include <gtest/gtest.h>
 #include <Blaze/Engine/Core/Logging/ConsoleLogger.hpp>
+#include <Blaze/Engine/Core/DesignPatterns/ServiceLocator.hpp>
 #include "mock_ConsoleLoggerAdapter.hpp"
 
 using namespace blaze;
-
-TEST(ConsoleLogger, SetUp_and_TearDown)
-{
-	auto console_logger = std::make_unique<MockConsoleLoggerAdapter>();
-	auto set_up_called{ false };
-	auto tear_down_called{ false };
-	console_logger->set_up_called = &set_up_called;
-	console_logger->tear_down_called = &tear_down_called;
-
-	ASSERT_FALSE(set_up_called);
-	ASSERT_FALSE(tear_down_called);
-
-	ConsoleLogger::registerLogger(std::move(console_logger));
-	ASSERT_TRUE(set_up_called);
-	ASSERT_FALSE(tear_down_called);
-
-	ConsoleLogger::clearRegistries();
-	ASSERT_TRUE(set_up_called);
-	ASSERT_TRUE(tear_down_called);
-}
 
 TEST(ConsoleLogger, Enable_Disable_LoggingLevel)
 {
 	std::string channel{};
 	std::string message{};
-	auto set_up_called{ false };
-	auto tear_down_called{ false };
 	
 	auto console_logger = std::make_unique<MockConsoleLoggerAdapter>();
 	console_logger->last_message_logged = &message;
 	console_logger->last_channel_logged = &channel;
-	console_logger->set_up_called = &set_up_called;
-	console_logger->tear_down_called = &tear_down_called;
-
-	ConsoleLogger::registerLogger(std::move(console_logger));
+	Locator<IConsoleLoggerAdapter>::provide(std::move(console_logger));
+	
 	const std::string dummy_channel = "channel";
 	const std::string dummy_critical_message = "critical";
 	
@@ -62,23 +39,17 @@ TEST(ConsoleLogger, Enable_Disable_LoggingLevel)
 	ConsoleLogger::logCritical(dummy_channel, dummy_critical_message);
 	ASSERT_TRUE(channel.empty());
 	ASSERT_TRUE(message.empty());
-	
-	ConsoleLogger::clearRegistries();
 }
 
 TEST(ConsoleLogger, LoggingLevelManipulation)
 {
 	std::string channel{};
 	std::string message{};
-	auto set_up_called{ false };
-	auto tear_down_called{ false };
 
 	auto console_logger = std::make_unique<MockConsoleLoggerAdapter>();
 	console_logger->last_message_logged = &message;
 	console_logger->last_channel_logged = &channel;
-	console_logger->set_up_called = &set_up_called;
-	console_logger->tear_down_called = &tear_down_called;
-	ConsoleLogger::registerLogger(std::move(console_logger));
+	Locator<IConsoleLoggerAdapter>::provide(std::move(console_logger));
 
 	ASSERT_FALSE(ConsoleLogger::isLoggingLevelEnabled(ConsoleLogger::LoggingLevel::critical));
 	ASSERT_FALSE(ConsoleLogger::isLoggingLevelEnabled(ConsoleLogger::LoggingLevel::warning));
@@ -114,24 +85,18 @@ TEST(ConsoleLogger, LoggingLevelManipulation)
 	ASSERT_TRUE(ConsoleLogger::isLoggingLevelEnabled(ConsoleLogger::LoggingLevel::warning));
 	ASSERT_FALSE(ConsoleLogger::isLoggingLevelEnabled(ConsoleLogger::LoggingLevel::information));
 	ASSERT_TRUE(ConsoleLogger::isLoggingLevelEnabled(ConsoleLogger::LoggingLevel::debug));
-
-	ConsoleLogger::clearRegistries();
 }
 
 TEST(ConsoleLogger, LoggingToLoggingLevels)
 {
 	std::string channel{};
 	std::string message{};
-	auto set_up_called{ false };
-	auto tear_down_called{ false };
 	
 	auto console_logger = std::make_unique<MockConsoleLoggerAdapter>();
 	console_logger->last_message_logged = &message;
 	console_logger->last_channel_logged = &channel;
-	console_logger->set_up_called = &set_up_called;
-	console_logger->tear_down_called = &tear_down_called;
-
-	ConsoleLogger::registerLogger(std::move(console_logger));
+	Locator<IConsoleLoggerAdapter>::provide(std::move(console_logger));
+	
 	const std::string dummy_channel = "channel";
 
 	/* test logging critical */
@@ -177,6 +142,4 @@ TEST(ConsoleLogger, LoggingToLoggingLevels)
 	channel.clear();
 	message.clear();
 	ConsoleLogger::disableLoggingLevel(ConsoleLogger::LoggingLevel::debug);
-
-	ConsoleLogger::clearRegistries();
 }

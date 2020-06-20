@@ -1,16 +1,5 @@
 #include "mock_ConsoleLoggerAdapter.hpp"
 
-void MockConsoleLoggerAdapter::setUp()
-{
-	*set_up_called = true;
-	
-}
-
-void MockConsoleLoggerAdapter::tearDown()
-{
-	*tear_down_called = true;
-}
-
 void MockConsoleLoggerAdapter::logCritical(const std::string_view channel, const std::string_view log_message) noexcept
 {
 	*last_channel_logged = channel;

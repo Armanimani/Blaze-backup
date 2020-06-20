@@ -20,15 +20,11 @@ namespace blaze
 		};
 
 		ConsoleLogger() = delete;
-		~ConsoleLogger();
 
 		ConsoleLogger(const ConsoleLogger& other) = delete;
 		ConsoleLogger(ConsoleLogger&& other) noexcept = delete;
 		ConsoleLogger& operator=(const ConsoleLogger& other) = delete;
 		ConsoleLogger& operator=(ConsoleLogger&& other) noexcept = delete;
-		
-		static void registerLogger(std::unique_ptr<IConsoleLoggerAdapter>&& adapter);
-		static void clearRegistries();
 		
 		static void enableLoggingLevel(LoggingLevel level);
 		static void disableLoggingLevel(LoggingLevel level);
@@ -40,7 +36,8 @@ namespace blaze
 		static void logInformation(std::string_view channel, std::string_view log_message) noexcept;
 		static void logDebug(std::string_view channel, std::string_view log_message) noexcept;
 	private:
-		inline static std::unique_ptr<IConsoleLoggerAdapter> s_adapter{ nullptr };
 		inline static UInt8 s_logging_level{};
+
+		static IConsoleLoggerAdapter* getAdapter();
 	};
 }
