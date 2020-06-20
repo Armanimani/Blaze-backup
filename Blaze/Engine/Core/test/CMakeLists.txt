@@ -12,7 +12,8 @@ add_executable(
 	"Math/test_FloatVector4.cpp" 
 	"Math/test_Matrix4X4.cpp" 
 	"Logging/test_ConsoleLogger.cpp" 
-	"Logging/mock_ConsoleLoggerAdapter.cpp")
+	"Logging/mock_ConsoleLoggerAdapter.cpp" 
+	"DesignPatterns/test_ServiceLocator.cpp")
 
 target_link_libraries(
 	blaze_test_engine_core
