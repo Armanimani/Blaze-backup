@@ -4,3 +4,6 @@
 [submodule "external/DirectXMath"]
 	path = external/DirectXMath
 	url = https://github.com/microsoft/DirectXMath
+[submodule "external/spdlog"]
+	path = external/spdlog
+	url = https://github.com/gabime/spdlog
