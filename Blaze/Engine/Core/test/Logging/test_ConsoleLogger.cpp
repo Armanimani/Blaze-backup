@@ -7,16 +7,16 @@ using namespace blaze;
 
 TEST(ConsoleLogger, Enable_Disable_LoggingLevel)
 {
-	std::string channel{};
-	std::string message{};
+	String channel{};
+	String message{};
 	
 	auto console_logger = std::make_unique<MockConsoleLoggerAdapter>();
 	console_logger->last_message_logged = &message;
 	console_logger->last_channel_logged = &channel;
 	Locator<IConsoleLoggerAdapter>::provide(std::move(console_logger));
 	
-	const std::string dummy_channel = "channel";
-	const std::string dummy_critical_message = "critical";
+	const String dummy_channel = "channel";
+	const String dummy_critical_message = "critical";
 	
 	/* Logging when level is not enabled */
 	ConsoleLogger::logCritical(dummy_channel, dummy_critical_message);
@@ -43,8 +43,8 @@ TEST(ConsoleLogger, Enable_Disable_LoggingLevel)
 
 TEST(ConsoleLogger, LoggingLevelManipulation)
 {
-	std::string channel{};
-	std::string message{};
+	String channel{};
+	String message{};
 
 	auto console_logger = std::make_unique<MockConsoleLoggerAdapter>();
 	console_logger->last_message_logged = &message;
@@ -89,19 +89,19 @@ TEST(ConsoleLogger, LoggingLevelManipulation)
 
 TEST(ConsoleLogger, LoggingToLoggingLevels)
 {
-	std::string channel{};
-	std::string message{};
+	String channel{};
+	String message{};
 	
 	auto console_logger = std::make_unique<MockConsoleLoggerAdapter>();
 	console_logger->last_message_logged = &message;
 	console_logger->last_channel_logged = &channel;
 	Locator<IConsoleLoggerAdapter>::provide(std::move(console_logger));
 	
-	const std::string dummy_channel = "channel";
+	const String dummy_channel = "channel";
 
 	/* test logging critical */
 	ConsoleLogger::enableLoggingLevel(ConsoleLogger::LoggingLevel::critical);
-	const std::string dummy_critical_message = "critical";
+	const String dummy_critical_message = "critical";
 	ConsoleLogger::logCritical(dummy_channel, dummy_critical_message);
 	ASSERT_EQ(channel, dummy_channel);
 	ASSERT_EQ(message, dummy_critical_message);
@@ -112,7 +112,7 @@ TEST(ConsoleLogger, LoggingToLoggingLevels)
 
 	/* test logging warning */
 	ConsoleLogger::enableLoggingLevel(ConsoleLogger::LoggingLevel::warning);
-	const std::string dummy_warning_message = "warning";
+	const String dummy_warning_message = "warning";
 	ConsoleLogger::logWarning(dummy_channel, dummy_warning_message);
 	ASSERT_EQ(channel, dummy_channel);
 	ASSERT_EQ(message, dummy_warning_message);
@@ -123,7 +123,7 @@ TEST(ConsoleLogger, LoggingToLoggingLevels)
 
 	/* test logging information */
 	ConsoleLogger::enableLoggingLevel(ConsoleLogger::LoggingLevel::information);
-	const std::string dummy_warning_information = "information";
+	const String dummy_warning_information = "information";
 	ConsoleLogger::logInformation(dummy_channel, dummy_warning_information);
 	ASSERT_EQ(channel, dummy_channel);
 	ASSERT_EQ(message, dummy_warning_information);
@@ -134,7 +134,7 @@ TEST(ConsoleLogger, LoggingToLoggingLevels)
 
 	/* test logging debug */
 	ConsoleLogger::enableLoggingLevel(ConsoleLogger::LoggingLevel::debug);
-	const std::string dummy_warning_debug = "debug";
+	const String dummy_warning_debug = "debug";
 	ConsoleLogger::logDebug(dummy_channel, dummy_warning_debug);
 	ASSERT_EQ(channel, dummy_channel);
 	ASSERT_EQ(message, dummy_warning_debug);

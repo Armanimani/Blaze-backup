@@ -2,6 +2,8 @@
 
 #include <cstdint>
 #include <cstdlib>
+#include <string>
+#include <string_view>
 
 namespace blaze
 {
@@ -21,6 +23,8 @@ namespace blaze
 	using Bool = bool;
 
 	using Char = char;
+	using String = std::string;
+	using StringView = std::string_view;
 
 	/* Aliases */
 	using Size_t = UInt64;
