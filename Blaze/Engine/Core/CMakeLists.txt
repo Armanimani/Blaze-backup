@@ -9,7 +9,9 @@
 	"private/Math/Matrix4X4.cpp" 
 	"private/Logging/ConsoleLogger.cpp"
 	"private/Window/WindowFactory.cpp" 
-	"private/Application/Application.cpp")
+	"private/Application/Application.cpp"
+	"private/Time/Timer.cpp" 
+	"private/Time/CalenderClock.cpp")
 
 target_include_directories(blaze_engine_core
 	INTERFACE
