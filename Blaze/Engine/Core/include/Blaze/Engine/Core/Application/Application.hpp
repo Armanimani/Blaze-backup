@@ -23,7 +23,7 @@ namespace blaze
 		void finalize() noexcept;
 
 		void initializePipelines() noexcept;
-		void updatePipelines(Milliseconds delta_time) noexcept;
+		void updatePipelines(Float delta_time) noexcept;
 		void finalizePipelines() noexcept;
 	};
 }

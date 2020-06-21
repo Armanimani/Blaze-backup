@@ -13,7 +13,7 @@ namespace blaze
 		void addSystem(std::unique_ptr<ISystem>&& system) noexcept;
 		
 		void initialize() noexcept;
-		void update(Milliseconds delta_time) noexcept;
+		void update(Float delta_time) noexcept;
 		void finalize() noexcept;
 	private:
 		std::vector<std::unique_ptr<ISystem>> systems{};

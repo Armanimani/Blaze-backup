@@ -14,7 +14,7 @@ namespace blaze
 			systems[i]->initialize();
 		}
 	}
-	void Pipeline::update(const Milliseconds delta_time) noexcept
+	void Pipeline::update(const Float delta_time) noexcept
 	{
 		for (std::size_t i = 0; i != systems.size(); ++i)
 		{

@@ -56,7 +56,7 @@ namespace blaze
 		{
 			frame_clock.tick();
 			window->update();
-			updatePipelines(frame_clock.getLastTickTime());
+			updatePipelines(frame_clock.getLastTickTime().count());
 		}
 
 		ConsoleLogger::logInformation(k_engine_channel, "Updating done! took " + std::to_string(frame_clock.getElapsedTime().count()) + " ms");
@@ -76,7 +76,7 @@ namespace blaze
 		}
 	}
 	
-	void Application::updatePipelines(const Milliseconds delta_time) noexcept
+	void Application::updatePipelines(const Float delta_time) noexcept
 	{
 		for (Size_t i = 0; i != pipelines.size(); ++i)
 		{

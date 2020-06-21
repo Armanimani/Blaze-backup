@@ -10,7 +10,7 @@ namespace blaze
 		virtual ~ISystem() = default;
 		
 		virtual void initialize() noexcept = 0;
-		virtual void update(Milliseconds delta_time) noexcept = 0;
+		virtual void update(Float delta_time) noexcept = 0;
 		virtual void finalize() noexcept = 0;
 	};
 }
