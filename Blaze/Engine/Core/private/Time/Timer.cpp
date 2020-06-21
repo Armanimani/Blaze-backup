@@ -1,5 +1,7 @@
 #include "Blaze/Engine/Core/Time/Timer.hpp"
 
+#include <cassert>
+
 namespace blaze
 {
 	Timer::Timer(const std::chrono::seconds duration)
@@ -16,8 +18,7 @@ namespace blaze
 	
 	Bool Timer::isReady() const noexcept
 	{
-		if (!is_running)
-			return false;
+		assert(is_running);
 
 		const auto now = clock_type::now();
 		return ((now - start_time) > scheduled_duration);

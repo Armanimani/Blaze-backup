@@ -1,11 +1,12 @@
 #include "Blaze/Engine/Core/Time/StopWatch.hpp"
 
+#include <cassert>
+
 namespace blaze
 {
 	void StopWatch::start() noexcept
 	{
-		if (is_running)
-			return;
+		assert(!is_running);
 
 		start_time = clock_type::now();
 		is_running = true;
@@ -13,8 +14,7 @@ namespace blaze
 	
 	void StopWatch::stop() noexcept
 	{
-		if (!is_running)
-			return;
+		assert(is_running);
 
 		const auto now = clock_type::now();
 		elapsed_duration += std::chrono::duration_cast<duration_type>(now - start_time);
