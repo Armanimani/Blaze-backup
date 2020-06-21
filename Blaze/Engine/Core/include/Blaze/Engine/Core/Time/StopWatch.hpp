@@ -9,7 +9,7 @@ namespace blaze
 	class StopWatch
 	{
 	public:
-		using duration_type = Milliseconds;
+		using duration_type = std::chrono::duration<Float>;
 		using clock_type = std::chrono::steady_clock;
 
 		void start() noexcept;

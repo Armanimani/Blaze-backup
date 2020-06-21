@@ -25,9 +25,7 @@ namespace blaze
 
 	using Char = char;
 	using String = std::string;
-	using StringView = std::string_view;
-
-	using Milliseconds = std::chrono::milliseconds;
+	using StringView = std::string_view; 
 
 	/* Aliases */
 	using Size_t = UInt64;
