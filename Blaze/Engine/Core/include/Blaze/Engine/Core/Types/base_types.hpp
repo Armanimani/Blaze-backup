@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <string>
 #include <string_view>
+#include <chrono>
 
 namespace blaze
 {
@@ -25,6 +26,8 @@ namespace blaze
 	using Char = char;
 	using String = std::string;
 	using StringView = std::string_view;
+
+	using Milliseconds = std::chrono::milliseconds;
 
 	/* Aliases */
 	using Size_t = UInt64;

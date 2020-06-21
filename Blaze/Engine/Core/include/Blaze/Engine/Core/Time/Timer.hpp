@@ -9,7 +9,7 @@ namespace blaze
 	class Timer
 	{
 	public:
-		using duration_type = std::chrono::milliseconds;
+		using duration_type = Milliseconds;
 		using clock_type = std::chrono::steady_clock;
 
 		explicit Timer(std::chrono::seconds duration);
