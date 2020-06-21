@@ -49,6 +49,7 @@ add_subdirectory(Blaze)
 install(
 	TARGETS
 		blaze_engine_core
+		blaze_engine_spdlog
 		blaze_editor
 	LIBRARY DESTINATION lib
 	ARCHIVE DESTINATION lib

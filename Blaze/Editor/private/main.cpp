@@ -1,11 +1,13 @@
 #include "Blaze/Engine/Core/Logging/ConsoleLogger.hpp"
-#include "Blaze/Engine/SpdLog/ConsoleLoggerAdapter_SpdLog.hpp"
 #include "Blaze/Engine/Core/DesignPatterns/ServiceLocator.hpp"
+#include "Blaze/Engine/Core/Window/WindowFactory.hpp"
+#include "Blaze/Engine/PlatfowmWindows/Win32WindowFactoryAdapter.hpp"
+#include "Blaze/Engine/SpdLog/ConsoleLoggerAdapter_SpdLog.hpp"
 
 int main()
 {
 	auto logger = std::make_unique<blaze::ConsoleLoggerAdapter_SpdLog>();
-	blaze::Locator<blaze::IConsoleLoggerAdapter>::provide(std::move(logger));
+	blaze::Locator<blaze::IConsoleLoggerAdapter>::provide(std::move(logger));	
 
 	blaze::ConsoleLogger::enableLoggingLevel(blaze::ConsoleLogger::LoggingLevel::critical);
 	blaze::ConsoleLogger::enableLoggingLevel(blaze::ConsoleLogger::LoggingLevel::warning);
@@ -17,4 +19,21 @@ int main()
 	blaze::ConsoleLogger::logWarning("Editor", "Warning message");
 	blaze::ConsoleLogger::logInformation("Editor", "Information message");
 	blaze::ConsoleLogger::logDebug("Editor", "Debug message");
+
+	auto windowFactory = std::make_unique<blaze::Win32WindowFactoryAdapter>();
+	blaze::Locator<blaze::IWindowFactoryAdapter>::provide(std::move(windowFactory));
+
+	blaze::WindowSpecification specification;
+	specification.initial_position_x = 0;
+	specification.initial_position_y = 0;
+	specification.initial_width = 800;
+	specification.initial_height = 600;
+	
+	const auto window = blaze::WindowFactory::create(specification);
+	window->show();
+
+	while(true)
+	{
+		window->update();
+	}
 }
