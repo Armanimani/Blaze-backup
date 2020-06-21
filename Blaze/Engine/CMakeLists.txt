@@ -1,5 +1,6 @@
 add_subdirectory(Core)
 add_subdirectory(SpdLog)
+add_subdirectory(PlatformWindows)
 
  add_library(
 	blaze_engine
@@ -12,6 +13,7 @@ target_link_libraries(
 		Blaze::ProjectOption 
 		Blaze::ProjectWarnings 
 		Blaze::Engine::Core
+		Blaze::Engine::Platform::Windows
 		Blaze::Engine::SpdLog
 )
 

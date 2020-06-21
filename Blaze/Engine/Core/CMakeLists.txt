@@ -7,7 +7,8 @@
 	"private/Math/FloatVector3.cpp" 
 	"private/Math/FloatVector4.cpp"
 	"private/Math/Matrix4X4.cpp" 
-	"private/Logging/ConsoleLogger.cpp")
+	"private/Logging/ConsoleLogger.cpp"
+	"private/Window/WindowFactory.cpp")
 
 target_include_directories(blaze_engine_core
 	INTERFACE
