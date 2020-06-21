@@ -26,8 +26,8 @@ int main()
 	blaze::WindowSpecification specification;
 	specification.initial_position_x = 0;
 	specification.initial_position_y = 0;
-	specification.initial_width = 800;
-	specification.initial_height = 600;
+	specification.initial_width = 3840;
+	specification.initial_height = 2160;
 	
 	const auto window = blaze::WindowFactory::create(specification);
 	window->show();
