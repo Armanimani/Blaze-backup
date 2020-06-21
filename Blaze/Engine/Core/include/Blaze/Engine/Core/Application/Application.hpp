@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Blaze/Engine/Core/Types/base_types.hpp"
+
 namespace blaze
 {
 	class Application
@@ -10,7 +12,7 @@ namespace blaze
 
 		void start() noexcept;
 	private:
+		Bool is_running{ false };
 		void initialize() noexcept;
-		void update_executors() noexcept;
 	};
 }
