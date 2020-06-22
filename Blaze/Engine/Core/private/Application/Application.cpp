@@ -5,7 +5,6 @@
 #include "Blaze/Engine/Core/Time/StopWatch.hpp"
 #include "Blaze/Engine/Core/Time/Clock.hpp"
 
-
 namespace blaze
 {
 	void Application::addPipeline(std::unique_ptr<Pipeline>&& pipeline)
