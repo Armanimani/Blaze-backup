@@ -9,8 +9,8 @@ namespace blaze
 	class Clock
 	{
 	public:
-		using duration_type = std::chrono::milliseconds;
-		using clock_type = std::chrono::steady_clock;
+		using duration_type = std::chrono::duration<Float>;
+		using clock_type = std::chrono::high_resolution_clock;
 
 		void start() noexcept;
 		void stop() noexcept;

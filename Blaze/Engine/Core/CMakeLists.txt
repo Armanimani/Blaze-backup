@@ -10,6 +10,7 @@
 	"private/Logging/ConsoleLogger.cpp"
 	"private/Window/WindowFactory.cpp" 
 	"private/Application/Application.cpp"
+	"private/Application/Pipeline.cpp"
 	"private/Time/Timer.cpp" 
 	"private/Time/CalenderClock.cpp" 
 	"private/Time/StopWatch.cpp" 
