@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <Blaze/Engine/Core/Component/TypeIdentifier.hpp>
+#include <Blaze/Engine/Core/Types/TypeIdentifier.hpp>
 
 using namespace blaze;
 
