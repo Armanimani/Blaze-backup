@@ -1,23 +1,22 @@
 #pragma once
 
 #include "Blaze/Engine/Core/Types/base_types.hpp"
+#include <atomic>
 
 namespace blaze
 {
 	class TypeIdentifier
 	{
 	public:
-		template<typename>
+		template<typename T>
 		static UInt64 get()
 		{
-			static const auto k_id = getId();
-			return k_id;
+			return id<std::decay_t<T>>;
 		}
 	private:
-		static UInt64 getId()
-		{
-			static UInt64 counter = 0;
-			return counter++;
-		}
+		inline static std::atomic<UInt64> counter{ 0 };
+		
+		template<typename T>
+		inline static const UInt64 id = counter++;
 	};
 }

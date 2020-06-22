@@ -30,3 +30,11 @@ TEST(TypeIdentifier, differentId)
 
 	ASSERT_NE(id1, id2);
 }
+
+TEST(TypeIdentifier, decayedTypes)
+{
+	const auto id1 = TypeIdentifier::get<int>();
+	const auto id2 = TypeIdentifier::get<const int>();
+
+	ASSERT_EQ(id1, id2);
+}
