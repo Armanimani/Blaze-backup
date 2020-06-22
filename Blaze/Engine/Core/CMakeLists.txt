@@ -15,7 +15,7 @@
 	"private/Time/CalenderClock.cpp" 
 	"private/Time/StopWatch.cpp" 
 	"private/Time/Clock.cpp"  
-	"private/Component/TypeIdentifier.cpp")
+	"private/Component/ComponentManager.cpp")
 
 target_include_directories(blaze_engine_core
 	INTERFACE
