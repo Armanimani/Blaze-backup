@@ -74,7 +74,7 @@ namespace blaze
 		assert(size() < capacity());
 
 		erase(index);
-		dense.emplace_back(std::forward<Args>(args)...);
+		dense.push_back(element_type{ std::forward<Args>(args)... });
 		sparse[index] = &(dense.back());
 	}
 
