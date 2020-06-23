@@ -15,7 +15,8 @@ add_executable(
 	"Logging/test_ConsoleLogger.cpp" 
 	"Logging/mock_ConsoleLoggerAdapter.cpp" 
 	"DesignPatterns/test_ServiceLocator.cpp" 
-	"DataStructures/test_SparseSet.cpp")
+	"DataStructures/test_SparseSet.cpp" 
+	"Entity/test_EntityManager.cpp")
 
 target_link_libraries(
 	blaze_test_engine_core
