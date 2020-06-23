@@ -4,6 +4,7 @@
 #include "Blaze/Engine/Core/Window/WindowFactory.hpp"
 #include "Blaze/Engine/Core/Time/StopWatch.hpp"
 #include "Blaze/Engine/Core/Time/Clock.hpp"
+#include "Blaze/Engine/Core/Entity/entity.hpp"
 
 namespace blaze
 {
