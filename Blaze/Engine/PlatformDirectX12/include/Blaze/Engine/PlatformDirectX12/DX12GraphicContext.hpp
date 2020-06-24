@@ -10,6 +10,10 @@ namespace blaze
 	{
 	public:
 		DX12GraphicContext(const GraphicSpecification& specification, void* window_handle);
+
+		void initialize() noexcept override;
+		void update() noexcept override;
+		void finalize() noexcept override;
 	private:
 		HWND handle{};
 	};

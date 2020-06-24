@@ -16,16 +16,18 @@ namespace blaze
 		
 		graphic_context = GraphicContextFactory::create(specification, window_handle);
 		// TODO: Transfer the properties in the specification to the context
+		
+		graphic_context->initialize();
 	}
 
 	
 	void GraphicSystem::update([[maybe_unused]] Context* context, [[maybe_unused]] Float delta_time) noexcept
 	{
-		
+		graphic_context->update();
 	}
 	
 	void GraphicSystem::finalize([[maybe_unused]] Context* context) noexcept
 	{
-		
+		graphic_context->finalize();
 	}
 }
