@@ -7,25 +7,25 @@ namespace blaze
 		systems.push_back(std::move(system));
 	}
 
-	void Pipeline::initialize() noexcept
+	void Pipeline::initialize(Context* context) noexcept
 	{
 		for (std::size_t i = 0; i != systems.size(); ++i)
 		{
-			systems[i]->initialize();
+			systems[i]->initialize(context);
 		}
 	}
-	void Pipeline::update(const Float delta_time) noexcept
+	void Pipeline::update(Context* context, const Float delta_time) noexcept
 	{
 		for (std::size_t i = 0; i != systems.size(); ++i)
 		{
-			systems[i]->update(delta_time);
+			systems[i]->update(context, delta_time);
 		}
 	}
-	void Pipeline::finalize() noexcept
+	void Pipeline::finalize(Context* context) noexcept
 	{
 		for (std::size_t i = 0; i != systems.size(); ++i)
 		{
-			systems[i]->finalize();
+			systems[i]->finalize(context);
 		}
 	}
 }

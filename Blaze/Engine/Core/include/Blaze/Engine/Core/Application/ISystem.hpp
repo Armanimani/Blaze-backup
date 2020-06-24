@@ -2,6 +2,8 @@
 
 #include "Blaze/Engine/Core/Types/base_types.hpp"
 #include "Blaze/Engine/Core/Types/TypeIdentifier.hpp"
+#include "Blaze/Engine/Core/Application/Context.hpp"
+
 #include <array>
 
 namespace blaze
@@ -11,9 +13,9 @@ namespace blaze
 	public:
 		virtual ~ISystem() = default;
 		
-		virtual void initialize() noexcept = 0;
-		virtual void update(Float delta_time) noexcept = 0;
-		virtual void finalize() noexcept = 0;
+		virtual void initialize(Context* context) noexcept = 0;
+		virtual void update(Context* context, Float delta_time) noexcept = 0;
+		virtual void finalize(Context* context) noexcept = 0;
 	};
 
 	template<typename...Component>

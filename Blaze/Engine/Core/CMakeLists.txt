@@ -14,7 +14,8 @@
 	"private/Time/Timer.cpp" 
 	"private/Time/CalenderClock.cpp" 
 	"private/Time/StopWatch.cpp" 
-	"private/Time/Clock.cpp" "include/Blaze/Engine/Core/Entity/entity.hpp")
+	"private/Time/Clock.cpp"
+	"private/Window/WindowSystem.cpp")
 
 target_include_directories(blaze_engine_core
 	INTERFACE
