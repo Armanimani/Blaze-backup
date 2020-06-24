@@ -6,11 +6,14 @@ namespace blaze
 {
 	struct WindowSpecification
 	{
-		Int32 initial_position_x{};
-		Int32 initial_position_y{};
-		Int32 initial_width{};
-		Int32 initial_height{};
+		Bool should_create_window{ true };
+		void* custom_window_handle{ nullptr };
+		
+		Int32 initial_position_x{ 0 };
+		Int32 initial_position_y{ 0 };
+		Int32 initial_width{ 3840 };
+		Int32 initial_height{ 2160 };
 
-		String title{ "Blaze" };
+		std::string title{ "Blaze" };
 	};
 }

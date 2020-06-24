@@ -1,13 +1,17 @@
 #include "Blaze/Engine/Core/Application/Application.hpp"
 #include "Blaze/Engine/Core/Common/constants.hpp"
 #include "Blaze/Engine/Core/Logging/ConsoleLogger.hpp"
-#include "Blaze/Engine/Core/Window/WindowFactory.hpp"
 #include "Blaze/Engine/Core/Time/StopWatch.hpp"
 #include "Blaze/Engine/Core/Time/Clock.hpp"
-
+#include "Blaze/Engine/Core/Entity/entity.hpp"
 
 namespace blaze
 {
+	Application::Application()
+	{
+		context = std::make_unique<Context>();
+	}
+
 	void Application::addPipeline(std::unique_ptr<Pipeline>&& pipeline)
 	{
 		pipelines.push_back(std::move(pipeline));
@@ -37,17 +41,6 @@ namespace blaze
 	void Application::update() noexcept
 	{
 		ConsoleLogger::logInformation(k_engine_channel, "Updating");
-		// TODO: Creating window is only necessary if no handle was passed
-		// TODO: The logic for updating the window can be decoupled form the main thread
-		// TODO: Move this to the configuration system
-		WindowSpecification specification;
-		specification.initial_position_x = 0;
-		specification.initial_position_y = 0;
-		specification.initial_width = 3840;
-		specification.initial_height = 2160;
-		const auto window = WindowFactory::create(specification);
-		window->show();
-
 		auto frame_clock = Clock();
 
 		is_running = true;
@@ -55,7 +48,6 @@ namespace blaze
 		while (is_running)
 		{
 			frame_clock.tick();
-			window->update();
 			updatePipelines(frame_clock.getLastTickTime().count());
 		}
 
@@ -72,7 +64,7 @@ namespace blaze
 	{
 		for (Size_t i = 0; i != pipelines.size(); ++i)
 		{
-			pipelines[i]->initialize();
+			pipelines[i]->initialize(context.get());
 		}
 	}
 	
@@ -80,7 +72,7 @@ namespace blaze
 	{
 		for (Size_t i = 0; i != pipelines.size(); ++i)
 		{
-			pipelines[i]->update(delta_time);
+			pipelines[i]->update(context.get(), delta_time);
 		}
 	}
 	
@@ -88,7 +80,7 @@ namespace blaze
 	{
 		for (Size_t i = 0; i != pipelines.size(); ++i)
 		{
-			pipelines[i]->finalize();
+			pipelines[i]->finalize(context.get());
 		}
 	}
 }

@@ -2,13 +2,14 @@
 
 #include "Blaze/Engine/Core/Types/base_types.hpp"
 #include "Blaze/Engine/Core/Application/Pipeline.hpp"
+#include "Blaze/Engine/Core/Application/Context.hpp"
 
 namespace blaze
 {
 	class Application
 	{
 	public:
-		Application() = default;
+		Application();
 		~Application() = default;
 
 		void addPipeline(std::unique_ptr<Pipeline>&& pipeline);
@@ -17,6 +18,7 @@ namespace blaze
 	private:
 		Bool is_running{ false };
 		std::vector<std::unique_ptr<Pipeline>> pipelines{};
+		std::unique_ptr<Context> context{ nullptr };
 		
 		void initialize() noexcept;
 		void update() noexcept;

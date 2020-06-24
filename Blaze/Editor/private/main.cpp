@@ -4,18 +4,19 @@
 #include "Blaze/Engine/SpdLog/ConsoleLoggerAdapter_SpdLog.hpp"
 #include "Blaze/Engine/Core/Application/Application.hpp"
 #include "Blaze/Engine/Core/Application/ISystem.hpp"
+#include "Blaze/Engine/Core/Window/WindowSystem.hpp"
 
 constexpr const char* k_editor_channel = "Editor";
 
 class FPSSystem: public blaze::ISystem
 {
 public:
-	void initialize() noexcept override
+	void initialize([[maybe_unused]] blaze::Context* context) noexcept override
 	{
 		blaze::ConsoleLogger::logInformation(k_editor_channel, "FPSSystem initialized!");
 	}
 	
-	void update(const blaze::Float delta_time) noexcept override
+	void update([[maybe_unused]] blaze::Context* context, const blaze::Float delta_time) noexcept override
 	{
 		frame_count++;
 		total_duration += delta_time;
@@ -28,7 +29,7 @@ public:
 		}
 	}
 	
-	void finalize() noexcept override
+	void finalize([[maybe_unused]] blaze::Context* context) noexcept override
 	{
 		blaze::ConsoleLogger::logInformation(k_editor_channel, "FPSSystem finalized!");
 	}
@@ -55,6 +56,7 @@ int main()
 	auto main_pipeline = std::make_unique<blaze::Pipeline>();
 	auto fps_system = std::make_unique<FPSSystem>();
 	main_pipeline->addSystem(std::move(fps_system));
+	main_pipeline->addSystem(std::make_unique<blaze::WindowSystem>());
 
 	blaze::Application application{};
 	application.addPipeline(std::move(main_pipeline));

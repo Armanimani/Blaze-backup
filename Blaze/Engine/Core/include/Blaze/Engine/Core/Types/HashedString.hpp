@@ -6,7 +6,7 @@
 
 namespace blaze
 {
-	template <typename ValueType = Char, typename HashType = UInt32>
+	template <typename ValueType = Char, typename HashType = UInt64>
 	class HashedString
 	{
 	public:

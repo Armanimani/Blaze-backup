@@ -15,3 +15,11 @@ target_include_directories(DirectXMath INTERFACE
 
 # Spdlog
 add_subdirectory(spdlog)
+
+# entt
+add_library(entt INTERFACE)
+
+target_include_directories(entt INTERFACE
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/entt/src>
+	$<INSTALL_INTERFACE:entt/src> 
+)

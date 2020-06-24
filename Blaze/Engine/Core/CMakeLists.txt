@@ -14,7 +14,8 @@
 	"private/Time/Timer.cpp" 
 	"private/Time/CalenderClock.cpp" 
 	"private/Time/StopWatch.cpp" 
-	"private/Time/Clock.cpp")
+	"private/Time/Clock.cpp"
+	"private/Window/WindowSystem.cpp")
 
 target_include_directories(blaze_engine_core
 	INTERFACE
@@ -27,7 +28,11 @@ target_include_directories(blaze_engine_core
 
 target_link_libraries(
 	blaze_engine_core
-	PUBLIC Blaze::ProjectOption Blaze::ProjectWarnings DirectXMath
+	PUBLIC 
+		Blaze::ProjectOption 
+		Blaze::ProjectWarnings 
+		DirectXMath
+		entt
 )
 
 add_library(Blaze::Engine::Core ALIAS blaze_engine_core)

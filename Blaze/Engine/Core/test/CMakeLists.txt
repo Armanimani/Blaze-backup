@@ -3,6 +3,7 @@ add_executable(
 	"Types/test_base_types.cpp"
 	"Types/test_fnv1a_hash.cpp"
 	"Types/test_HashedString.cpp"
+	"Types/test_TypeIdentifier.cpp"
 	"Math/test_utilities.cpp" 
 	"Math/test_IntVector2.cpp"
 	"Math/test_IntVector3.cpp" 
@@ -13,7 +14,8 @@ add_executable(
 	"Math/test_Matrix4X4.cpp" 
 	"Logging/test_ConsoleLogger.cpp" 
 	"Logging/mock_ConsoleLoggerAdapter.cpp" 
-	"DesignPatterns/test_ServiceLocator.cpp")
+	"DesignPatterns/test_ServiceLocator.cpp" 
+	"DataStructures/test_SparseSet.cpp")
 
 target_link_libraries(
 	blaze_test_engine_core
