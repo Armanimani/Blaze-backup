@@ -7,6 +7,6 @@ namespace blaze
 	class DX12DeviceFactory
 	{
 	public:
-		static Microsoft::WRL::ComPtr<ID3D12Device6> create() noexcept;
+		[[nodiscard]] static Microsoft::WRL::ComPtr<ID3D12Device6> create() noexcept;
 	};
 }

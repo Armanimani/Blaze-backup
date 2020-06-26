@@ -8,10 +8,10 @@ namespace blaze
 	class DX12SwapChainFactory
 	{
 	public:
-		static Microsoft::WRL::ComPtr<IDXGISwapChain4> create(
+		[[nodiscard]] static Microsoft::WRL::ComPtr<IDXGISwapChain4> create(
 			Microsoft::WRL::ComPtr<ID3D12CommandQueue>& command_queue, HWND window_handle, UInt32 resolution_x, UInt32 resolution_y, 
 			UInt32 buffer_count) noexcept;
 	private:
-		static DXGI_SWAP_CHAIN_DESC1 getDescriptor(UInt32 resolution_x, UInt32 resolution_y, UInt32 buffer_count) noexcept;
+		[[nodiscard]] static DXGI_SWAP_CHAIN_DESC1 getDescriptor(UInt32 resolution_x, UInt32 resolution_y, UInt32 buffer_count) noexcept;
 	};
 }

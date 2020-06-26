@@ -7,10 +7,10 @@ namespace blaze
 	class DX12CommandQueueFactory
 	{
 	public:
-		static Microsoft::WRL::ComPtr<ID3D12CommandQueue> create(
+		[[nodiscard]] static Microsoft::WRL::ComPtr<ID3D12CommandQueue> create(
 			Microsoft::WRL::ComPtr<ID3D12Device6>& device, D3D12_COMMAND_LIST_TYPE type, 
 			D3D12_COMMAND_QUEUE_PRIORITY priority) noexcept;
 	private:
-		static D3D12_COMMAND_QUEUE_DESC getDescriptor(D3D12_COMMAND_LIST_TYPE type, D3D12_COMMAND_QUEUE_PRIORITY priority) noexcept;
+		[[nodiscard]] static D3D12_COMMAND_QUEUE_DESC getDescriptor(D3D12_COMMAND_LIST_TYPE type, D3D12_COMMAND_QUEUE_PRIORITY priority) noexcept;
 	};
 }
