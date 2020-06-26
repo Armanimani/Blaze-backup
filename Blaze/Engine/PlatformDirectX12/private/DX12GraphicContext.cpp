@@ -1,4 +1,6 @@
 #include "Blaze/Engine/PlatformDirectX12/DX12GraphicContext.hpp"
+#include "Blaze/Engine/PlatformDirectX12/DX12DebugController.hpp"
+#include "Blaze/Engine/PlatformDirectX12/DX12DeviceFactory.hpp"
 
 namespace blaze
 {
@@ -7,6 +9,10 @@ namespace blaze
 
 	void DX12GraphicContext::initialize() noexcept
 	{
+		DX12DebugController::enableDebugInterface();
+		device = DX12DeviceFactory::create();
+		DX12DebugController::enableDebugInfoQueue(device);
+
 		
 	}
 

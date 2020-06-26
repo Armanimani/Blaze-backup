@@ -1,6 +1,9 @@
  add_library(
 	blaze_engine_platform_directX12
-	"private/DX12GraphicContextFactoryAdapter.cpp" "include/Blaze/Engine/PlatformDirectX12/DX12GraphicContext.hpp" "private/DX12GraphicContext.cpp" "private/DX12DebugController.cpp" "include/Blaze/Engine/PlatformDirectX12/common.hpp")
+	"private/DX12GraphicContextFactoryAdapter.cpp" 
+	"private/DX12GraphicContext.cpp" 
+	"private/DX12DebugController.cpp" 
+	"private/DX12DeviceFactory.cpp")
 
 target_include_directories(blaze_engine_platform_directX12
 	INTERFACE
@@ -18,6 +21,7 @@ target_link_libraries(
 		Blaze::ProjectWarnings
 		Blaze::Engine::Core
 		Blaze::Engine::Graphics
+		D3D12.lib
 )
 
 add_library(Blaze::Engine::Platform::DirectX12 ALIAS blaze_engine_platform_directX12)
