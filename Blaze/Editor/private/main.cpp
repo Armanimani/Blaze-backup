@@ -5,6 +5,9 @@
 #include "Blaze/Engine/Core/Application/Application.hpp"
 #include "Blaze/Engine/Core/Application/ISystem.hpp"
 #include "Blaze/Engine/Core/Window/WindowSystem.hpp"
+#include "Blaze/Engine/Graphics/Context/IGraphicContextFactoryAdapter.hpp"
+#include "Blaze/Engine/PlatformDirectX12/DX12GraphicContextFactoryAdapter.hpp"
+#include "Blaze/Engine/Graphics/GraphicSystem.hpp"
 
 constexpr const char* k_editor_channel = "Editor";
 
@@ -53,10 +56,14 @@ int main()
 	auto window_factory = std::make_unique<blaze::Win32WindowFactoryAdapter>();
 	blaze::Locator<blaze::IWindowFactoryAdapter>::provide(std::move(window_factory));
 
+	auto graphic_factory = std::make_unique<blaze::DX12GraphicContextFactoryAdapter>();
+	blaze::Locator<blaze::IGraphicContextFactoryAdapter>::provide(std::move(graphic_factory));
+	
 	auto main_pipeline = std::make_unique<blaze::Pipeline>();
 	auto fps_system = std::make_unique<FPSSystem>();
 	main_pipeline->addSystem(std::move(fps_system));
 	main_pipeline->addSystem(std::make_unique<blaze::WindowSystem>());
+	main_pipeline->addSystem(std::make_unique<blaze::GraphicSystem>());
 
 	blaze::Application application{};
 	application.addPipeline(std::move(main_pipeline));

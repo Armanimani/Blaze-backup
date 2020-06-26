@@ -5,7 +5,10 @@ add_executable(
 
 target_link_libraries(
 	blaze_editor
-	PUBLIC Blaze::ProjectOption Blaze::ProjectWarnings Blaze::Engine
+	PUBLIC 
+		Blaze::ProjectOption 
+		Blaze::ProjectWarnings 
+		Blaze::Engine
 )
 
 target_include_directories(
