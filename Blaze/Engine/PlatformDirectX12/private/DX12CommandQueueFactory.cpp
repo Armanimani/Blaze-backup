@@ -4,7 +4,7 @@
 namespace blaze
 {
 	Microsoft::WRL::ComPtr<ID3D12CommandQueue> DX12CommandQueueFactory::create(
-		Microsoft::WRL::ComPtr<ID3D12Device6>& device, 
+		Microsoft::WRL::ComPtr<ID3D12Device>& device, 
 		const D3D12_COMMAND_LIST_TYPE type,
 		const D3D12_COMMAND_QUEUE_PRIORITY priority) noexcept
 	{

@@ -5,7 +5,7 @@
 namespace blaze
 {
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList5> DX12CommandListFactory::create(
-		const Microsoft::WRL::ComPtr<ID3D12Device6>& device,
+		const Microsoft::WRL::ComPtr<ID3D12Device>& device,
 		const Microsoft::WRL::ComPtr<ID3D12CommandAllocator>& allocator, 
 		const D3D12_COMMAND_LIST_TYPE type) noexcept
 	{

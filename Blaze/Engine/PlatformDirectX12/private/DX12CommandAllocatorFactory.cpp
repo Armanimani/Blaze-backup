@@ -4,7 +4,7 @@
 namespace blaze
 {
 	Microsoft::WRL::ComPtr<ID3D12CommandAllocator> DX12CommandAllocatorFactory::create(
-		const Microsoft::WRL::ComPtr<ID3D12Device6>& device, const D3D12_COMMAND_LIST_TYPE type) noexcept
+		const Microsoft::WRL::ComPtr<ID3D12Device>& device, const D3D12_COMMAND_LIST_TYPE type) noexcept
 	{
 		Microsoft::WRL::ComPtr<ID3D12CommandAllocator> command_allocator{};
 		

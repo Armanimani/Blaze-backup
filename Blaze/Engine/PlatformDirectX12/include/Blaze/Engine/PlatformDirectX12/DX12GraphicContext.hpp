@@ -21,7 +21,7 @@ namespace blaze
 		HWND handle{};
 		UInt32 buffer_count{};
 		
-		Microsoft::WRL::ComPtr<ID3D12Device6> device{};
+		Microsoft::WRL::ComPtr<ID3D12Device> device{};
 		Microsoft::WRL::ComPtr<IDXGISwapChain4> swap_chain{};
 		Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList5> graphic_command_list{};
 		Microsoft::WRL::ComPtr<ID3D12CommandQueue> graphic_command_queue{};

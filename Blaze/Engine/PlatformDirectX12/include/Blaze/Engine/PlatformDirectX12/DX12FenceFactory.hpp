@@ -8,6 +8,6 @@ namespace blaze
 	{
 	public:
 		[[nodiscard]] static Microsoft::WRL::ComPtr<ID3D12Fence1> create(
-			const Microsoft::WRL::ComPtr<ID3D12Device6>& device, D3D12_FENCE_FLAGS flags) noexcept;
+			const Microsoft::WRL::ComPtr<ID3D12Device>& device, D3D12_FENCE_FLAGS flags) noexcept;
 	};
 }
