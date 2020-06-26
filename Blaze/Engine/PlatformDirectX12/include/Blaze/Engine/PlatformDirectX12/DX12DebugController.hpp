@@ -1,7 +1,6 @@
 #pragma once
 
-#include <wrl.h>
-#include <d3d12.h>
+#include "Blaze/Engine/PlatformDirectX12/common.hpp"
 
 namespace blaze
 {

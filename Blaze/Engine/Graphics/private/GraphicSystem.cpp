@@ -23,7 +23,7 @@ namespace blaze
 	
 	void GraphicSystem::update([[maybe_unused]] Context* context, [[maybe_unused]] Float delta_time) noexcept
 	{
-		graphic_context->update();
+		graphic_context->present();
 	}
 	
 	void GraphicSystem::finalize([[maybe_unused]] Context* context) noexcept

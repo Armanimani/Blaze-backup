@@ -8,8 +8,8 @@ namespace blaze
 	{
 		Microsoft::WRL::ComPtr<ID3D12Debug3> debug{};
 
-		if (!debug)
-			ConsoleLogger::logDebug(k_dx12_channel, "Unable to enable debug interface!");
+		if (FAILED(D3D12GetDebugInterface(IID_PPV_ARGS(&debug))))
+			ConsoleLogger::logWarning(k_dx12_channel, "Unable to enable debug interface!");
 		
 		debug->EnableDebugLayer();
 	}
@@ -18,8 +18,8 @@ namespace blaze
 	{
 		Microsoft::WRL::ComPtr<ID3D12InfoQueue> info_queue{};
 
-		if (device.As(&info_queue) < 0)
-			ConsoleLogger::logDebug(k_dx12_channel, "Unable to query the info queue");
+		if (FAILED(device.As(&info_queue)))
+			ConsoleLogger::logWarning(k_dx12_channel, "Unable to query the info queue");
 
 		info_queue->SetBreakOnSeverity(D3D12_MESSAGE_SEVERITY_CORRUPTION, true);
 		info_queue->SetBreakOnSeverity(D3D12_MESSAGE_SEVERITY_ERROR, true);
