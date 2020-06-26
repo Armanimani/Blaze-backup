@@ -11,6 +11,8 @@ namespace blaze
 	public:
 		[[nodiscard]] static Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> create(
 			Microsoft::WRL::ComPtr<ID3D12Device6>& device, UInt32 number, D3D12_DESCRIPTOR_HEAP_TYPE type) noexcept;
+		
+		[[nodiscard]] static UInt32 getRtvDescriptorSize(const Microsoft::WRL::ComPtr<ID3D12Device6>& device) noexcept;
 	private:
 		[[nodiscard]] static D3D12_DESCRIPTOR_HEAP_DESC getDescriptor(UInt32 number, D3D12_DESCRIPTOR_HEAP_TYPE type) noexcept;
 	};

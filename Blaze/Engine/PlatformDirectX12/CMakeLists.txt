@@ -12,7 +12,7 @@
 	"private/DX12CommandAllocatorFactory.cpp" 
 	"private/DX12DescriptorHeapFactory.cpp" 
 	"private/DX12FenceFactory.cpp" 
-	"private/DX12FenceEventFactory.cpp")
+	"private/DX12FenceEventFactory.cpp" "include/Blaze/Engine/PlatformDirectX12/external/d3d12.h")
 
 target_include_directories(blaze_engine_platform_directX12
 	INTERFACE
@@ -31,6 +31,7 @@ target_link_libraries(
 		Blaze::Engine::Core
 		Blaze::Engine::Graphics
 		D3D12.lib
+		dxgi.lib
 )
 
 add_library(Blaze::Engine::Platform::DirectX12 ALIAS blaze_engine_platform_directX12)

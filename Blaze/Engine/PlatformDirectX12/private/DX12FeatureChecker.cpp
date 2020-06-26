@@ -8,7 +8,7 @@ namespace blaze
 {
 	Bool DX12FeatureChecker::isTearingSupported() noexcept
 	{
-		Bool result = false;
+		auto result = FALSE;
 
 		auto factory = DX12DXGIFactoryFactory::create();
 		if (FAILED(factory->CheckFeatureSupport(DXGI_FEATURE_PRESENT_ALLOW_TEARING, &result, sizeof(result))))

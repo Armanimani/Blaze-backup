@@ -16,6 +16,11 @@ namespace blaze
 		return descriptor_heap;
 	}
 
+	UInt32 DX12DescriptorHeapFactory::getRtvDescriptorSize(const Microsoft::WRL::ComPtr<ID3D12Device6>& device) noexcept
+	{
+		return device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+	}
+
 	D3D12_DESCRIPTOR_HEAP_DESC DX12DescriptorHeapFactory::getDescriptor(const UInt32 number, const D3D12_DESCRIPTOR_HEAP_TYPE type) noexcept
 	{
 		D3D12_DESCRIPTOR_HEAP_DESC descriptor{};
