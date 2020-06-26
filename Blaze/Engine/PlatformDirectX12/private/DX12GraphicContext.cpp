@@ -11,7 +11,7 @@ namespace blaze
 	}
 
 
-	void DX12GraphicContext::update() noexcept
+	void DX12GraphicContext::present() noexcept
 	{
 		
 	}

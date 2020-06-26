@@ -1,6 +1,6 @@
  add_library(
 	blaze_engine_platform_directX12
-	"private/DX12GraphicContextFactoryAdapter.cpp" "include/Blaze/Engine/PlatformDirectX12/DX12GraphicContext.hpp" "private/DX12GraphicContext.cpp")
+	"private/DX12GraphicContextFactoryAdapter.cpp" "include/Blaze/Engine/PlatformDirectX12/DX12GraphicContext.hpp" "private/DX12GraphicContext.cpp" "private/DX12DebugController.cpp" "include/Blaze/Engine/PlatformDirectX12/common.hpp")
 
 target_include_directories(blaze_engine_platform_directX12
 	INTERFACE
