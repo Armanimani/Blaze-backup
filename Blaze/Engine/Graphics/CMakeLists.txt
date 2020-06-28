@@ -1,6 +1,6 @@
  add_library(
 	blaze_engine_graphics
-	"private/Context/GraphicContextFactory.cpp" "include/Blaze/Engine/Graphics/Context/IGraphicContextFactoryAdapter.hpp" "include/Blaze/Engine/Graphics/GraphicSystem.hpp" "private/GraphicSystem.cpp" "include/Blaze/Engine/Graphics/GraphicComponent.hpp")
+	"private/Context/GraphicContextFactory.cpp" "include/Blaze/Engine/Graphics/Context/IGraphicContextFactoryAdapter.hpp" "include/Blaze/Engine/Graphics/GraphicSystem.hpp" "private/GraphicSystem.cpp" "include/Blaze/Engine/Graphics/GraphicComponent.hpp" )
 
 target_include_directories(blaze_engine_graphics
 	INTERFACE
